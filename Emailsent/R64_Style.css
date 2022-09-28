@@ -1,0 +1,934 @@
+@font-face {
+  font-family: 'AkkuratLLWeb-Regular';
+  src: url('/AkkuratLLWeb-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'AkkuratLLWeb-Bold';
+  src: url('/AkkuratLLWeb-Bold.woff2') format('woff2');
+}
+
+body {
+  background-color: white;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+/*------------------------ HEADERS ------------------------*/
+
+h1 {
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  color: black;
+  text-align: center;
+}
+h2 {
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  color: black;
+  font-size: 36px;
+  text-align: initial;
+}
+h3 {
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  color: black;
+  font-size: 31px;
+  text-align: center;
+}
+
+/*------------------------ VIDEO ------------------------*/
+
+.vBox{
+    height: 100%;
+    align-items: center;
+    z-index:0;
+    width:950px;
+    border:none;
+    box-shadow:none;
+}
+#vButton {
+    position:absolute;
+    z-index:100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    content: url('./images/PlayButton.png');
+    cursor: pointer;
+}
+#introVideo{
+
+    object-fit: cover;
+    border: none;
+    box-shadow: none;
+    -webkit-appearance: none
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+}
+
+video{
+  width: 100%;
+  height: auto;
+
+}
+
+/*------------------------ LINE DIVIDERS ------------------------*/
+.dLine {
+    border: 0;
+    height: 1px;
+    background: #C9C9C9;
+    top: 1px;
+    width: 950px;
+}
+
+.frame {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: #FFFFFF;
+}
+
+/*------------------------ NEWS BOX ------------------------*/
+.newsParent{
+    /*background-color: #FF3333;*/
+    width: 950px;
+    height: 100%;
+    align-items: center;
+    position: relative;
+}
+
+.newsContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  align-items: center;
+  flex-direction:row;
+}
+
+.newsBox{
+  width: 249px;
+  height: 200px;
+  /*background-color: #0033FF;*/
+  /*border: 1px solid black;*/
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  font-size: 15px;
+}
+
+.newsText{
+  /*border-left: 8px solid #FFFFFF;*/
+}
+
+/*------------------------ PRESS BOX ------------------------*/
+.pressParent{
+    /*background-color: #FF3333;*/
+    width: 950px;
+    height: 100%;
+    align-items: center;
+    position: relative;
+}
+
+.pressContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  align-items: center;
+  flex-direction:row;
+}
+
+.pressBox{
+  width: 195px;
+  height: 130px;
+  /*background-color: #0033FF;*/
+  /*border: 1px solid black;*/
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  font-size: 15px;
+}
+
+.pressText{
+  border-left: 8px solid #FFFFFF;
+}
+
+
+
+/*------------------------ IMAGE BOX ------------------------*/
+.imgBox{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+}
+
+.imgBox li {
+  display: inline-block;
+  text-align: center;
+  border-right: 12px solid #FFFFFF;
+  border-left: 12px solid #FFFFFF;
+}
+
+img:hover{
+   /*transform: scale(1.1);*/
+}
+/*------------------------ TEXT BOX ------------------------*/
+.tBox {
+    /*background-color: #FF0000;*/
+    width: 950px;
+    height: 100%;
+    align-items: center;
+    font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+    font-size: 24px;
+    text-align: initial;
+    padding: 0px 0px 0px 30px;
+}
+
+/*------------------------ CONTAINERS & SPACERS ------------------------*/
+
+.filler{background-color: #FFFFFF;width: 950px;}
+
+.container{
+    background-color: #FFFFFF;
+    width: 950px;
+    height: 100%;
+    display: flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between;
+    align-items: center;
+    position: relative;
+
+}
+
+
+
+/*------------------------ PRICING SWITCHER------------------------*/
+
+
+.PR_SwitchFill{
+  width:100%;
+ /* background-color: #00FF00;*/
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+}
+
+.PR_SwitchCenter{
+  width:140px;
+  display: block;
+  /*background-color: #FFFF00;*/
+  height: 60px;
+}
+
+.PR_SwitchText{
+  height: 22px;
+  font-size: 15px;
+  position:  relative;
+  color: #000000;
+  top: 21px;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+}
+
+
+input[type=checkbox]{
+  height: 0;
+  width: 0;
+  visibility: hidden;
+
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 38px;
+  height: 22px;
+  background: #AAAAAA;
+  display: block;
+  border-radius: 20px;
+  position: relative;
+  margin: auto;
+}
+
+label:after {
+  content: '';
+  position: absolute;
+  top: 3.5px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 18px;
+}
+
+input:checked + label {
+  /*background: #bada55;*/
+}
+
+input:checked + label:after {
+  left: calc(100% - 3px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  /*width: 130px;*/
+}
+
+
+/*------------------------ PRICING ------------------------*/
+
+
+
+.priceContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  align-items: center;
+  flex-direction:row;
+}
+
+.priceBox{
+  width: 225px;
+  height: 440px;
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  border-radius: 6px;
+  order: 0;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.PR_Top{
+  height: 28px;
+  /*background-color: #FFFF00;*/
+}
+.PR_Main{
+  width: 225px;
+  /*background-color: #E3EFEF;*/
+  flex: 1 1 auto;
+  display: flex;
+}
+
+.PR_LEdge{width: 16px;}
+.PR_Center{
+  /*background-color: #00FFFF;*/
+  width: 225px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
+}
+.PR_REdge{width: 16px;}
+
+.PR_TopInner{
+  width:100%;
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  /*background-color: #00FF00;*/
+  height: 60px;
+}
+
+.PR_Product{
+  height: 25px;
+  /*background-color: #FF0000;*/
+  font-size: 22px;
+}
+
+.PR_PriceBox{
+  height: 25px;
+  /*background-color: #0000FF;*/
+  font-size: 22px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.PR_Price{
+  height: 25px;
+  /*background-color: #FF00FF;*/
+  font-size: 32px;
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+}
+
+.PR_Duration{
+  height: 14px;
+  font-size: 12px;
+  position:  relative;
+  color: #888888;
+  top: 15px;
+}
+
+.PR_Toggle{
+  height: 37px;
+  font-size: 12px;
+  position:  relative;
+  top: 16px;
+  color: #888888;
+}
+
+.PR_ButtonParent{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.PR_ButtonMonth{
+  display:block;
+}
+.PR_ButtonYear{
+  display:none;
+}
+
+/*.blueButton button{*/
+
+.blueButton{
+  cursor: pointer;
+  height: 32px;
+  width:  200px;
+  line-height: 32px;
+  color: #FFFFFF;
+  background-color: #286FFF;
+  font-size: 13px;
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  border-radius: 6px;
+  text-align: center;
+  z-index: 10;
+  border: 0px;
+}
+
+
+
+.blueButton:hover{
+  background-color: #4991F7;
+}
+.PR_ButtonSpace{
+  width: 10px;
+  height: 32px;
+  color: #FF0000;
+}
+
+.Free_Button{
+  cursor: pointer;
+  height: 32px;
+  width:  200px;
+  line-height: 32px;
+  color: #4D4D4D;
+  background-color: #FFFFFF;
+  font-size: 13px;
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  border-radius: 6px;
+  text-align: center;
+  z-index: 10;
+  border: 1px solid #4D4D4D;
+}
+.Free_Button:hover{
+   border: 1px solid #CCCCCC;
+   color: #6D6D6D;
+}
+
+.PR_Spacer{
+  height: 22px;
+  /*background-color: #FF0000;*/
+}
+
+.PR_FHeader{
+  height: 30px;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  color: #000000;
+  font-size: 13px;
+}
+
+.PR_FeatureB{
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  color: #000000;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.PR_Feature{
+  /*background-color: #FF0000;*/
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  color: #000000;
+  font-size: 13px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.PR_Check{
+  content:url("./images/Check.png");
+  object-fit: contain;
+}
+
+.F_Widen{width: 5px;}
+
+.F_Spacer{height: 13px;}
+
+
+/*------------------------ QUESTIONS ------------------------*/
+
+.PR_QA_Fill{
+  width:100%;
+  height: 40px;
+  /*background-color: #00FF00;*/
+}
+
+.PR_QA_Fixed{
+  /*background-color: #00FFFF;*/
+  width: 225px;
+  height: 40px;
+}
+
+.PR_QA_Center{
+  width:15px;
+  /*background-color: #FF0000;*/
+  height: 40px;
+}
+
+
+#partnerWide{
+  display:block;
+}
+#partnerNarrow{
+  display:none;
+}
+
+.parterNarrowContainer{
+  width:680px;
+  height: 100%;
+
+}
+
+.pImgBox{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: normal;
+    align-content: normal;
+}
+.imgH{
+
+}
+
+.newsParentNarrow{
+  display:none;
+}
+.narrowNewsText{
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  color: black;
+  font-size: 30px;
+  padding: 10px 30px;
+  /*background-color: #AA0000;*/
+}
+
+.priceParent{
+    /*background-color: #FF3333;*/
+    width: 950px;
+    height: 100%;
+    align-items: center;
+    position: relative;
+}
+
+
+
+/*----------------------  Mobile Pricing ----------------------*/
+
+.priceParentNarrow{
+  display:none;
+}
+.MPR_Outer{
+  /*background-color: #FF0044;*/
+  /*height: 100%;*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  font-size: 35px;
+}
+
+.MPR_LeftP{
+  width:36%;
+  padding-right: 50px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.MPR_RightP{
+  /*background-color: #FF55FF;*/
+  width:  64%;
+  height: 100%;
+}
+
+.questionContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  align-items: center;
+  flex-direction:row;
+}
+
+.questionContainerNarrow{
+  display: none;
+}
+
+
+#introTxt{
+  font-size: 25px;
+}
+
+#ContentLayer{
+  visibility: visible;
+  display:block;
+}
+/*######################################################*/
+/*######################################################*/
+/*######################################################*/
+/*------------------- CONTENT MOBILE ------------------*/
+
+@media (max-device-width: 950px), (max-width: 950px) {
+
+  .questionContainerNarrow{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    align-items: center;
+    flex-direction:row;
+  }
+  .questionContainer{
+    display: none;
+  }
+
+  .priceParentNarrow{
+    display:block;
+    width: 93%;
+    height: 100%;
+    align-items: center;
+    position: relative;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border: 2px solid #CCCCCC;
+    border-radius: 6px;
+  }
+
+  .PR_Product{height:40px;font-size:42px;}
+  .PR_PriceBox{height:25px;font-size:22px;}
+  .PR_Price{height:25px;font-size:48px;}
+  .PR_Duration{height:34px;font-size:24px;}
+  .PR_Toggle{height:47px;font-size:12px;}
+
+  .PR_ButtonMonth{}
+  .PR_ButtonYear{}
+  
+  .blueButton{
+    height:42px;font-size:21px;
+    width: 100%;
+  }
+
+  .PR_ButtonSpace{width:10px;height:32px;}
+  .Free_Button{
+    height:42px;font-size:21px;
+    width: 100%;
+  }
+  .PR_Spacer{height:22px;}
+  .PR_FHeader{
+    font-size:23px;
+    height: 100%;
+  }
+  .PR_FeatureB{
+    font-size:23px;
+  }
+  .F_Widen{
+    font-size: 53px;
+  }
+  .PR_Check{
+    padding: 2px;
+    height: 24px;
+    font-size: 53px;
+    content:url("./images/CheckMobile.png");
+  }
+  .PR_Feature{
+    font-size: 23px;
+  }
+
+  .priceParent{
+    display:none;
+  }
+
+  .newsParent{
+    display:none;
+  }
+  .newsParentNarrow{
+    display:block;
+    width: 100%;
+  }
+
+  #partnerWide{
+    display: none;
+  }
+  #partnerNarrow{
+    display: flex;
+    /*background-color: #440000;*/
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: normal;
+  }
+
+  /* ---- General Text Resize For Mobile ---- */
+  h2 {
+    font-size: 39px;
+  }
+  h3 {
+    font-size: 41px;
+  }
+  .tBox{
+    width: 100%;
+    font-size: 32px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .priceParent{width: 100%;}
+  .vBox{
+    width: 100%;
+  }
+
+  #introTxt{font-size: 40px;}
+}
+
+
+/*######################################################*/
+/*######################################################*/
+/*---------------------- INFO BAR ----------------------*/
+/*######################################################*/
+
+.infoParentNarrow{
+  display: none;
+}
+
+.infoParent{
+    /*background-color: #FF3333;*/
+    width: 950px;
+    height: 100%;
+    align-items: center;
+}
+
+.infoContainerWide{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  flex-direction:row;
+  /*background-color: #555555;*/
+  width: 100%;
+}
+
+.infoBoxLogo{
+  width: 140px;
+  height: 270px;
+  /*background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;*/
+  border-radius: 6px;
+  order: 0;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.infoBox{
+  width: 160px;
+  height: 270px;
+  /*background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;*/
+  border-radius: 6px;
+  order: 0;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+
+
+.info_LEdge{
+  /*background-color: #00FFFF;*/
+  width: 20px;
+}
+.info_REdge{
+  /*background-color: #FF00FF;*/
+  width: 10px;
+}
+.info_Center{
+  /*background-color: #00FFFF;*/
+  width: 158px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
+}
+
+
+.info_Spacer{height: 13px;}
+
+
+/*######################################################*/
+/*----------------- BOTTOM INFO MOBILE -----------------*/
+
+.infoContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  align-items: center;
+  flex-direction:column;
+}
+
+.aInfo{
+  /*background-color: #FF0000;*/
+  color: #777777;
+  text-decoration: none;
+  font-size: 13px;
+  
+}
+.aInfo:hover{color: #000000;}
+.aInfoB{
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  /*background-color: #FF0000;*/
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+/*Mobile version*/
+.amInfoB{
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  font-size: 38px;
+  font-weight: bold;
+}
+.amInfo{
+    /*background-color: #FF0000;*/
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  font-weight: regular;
+  font-size: 32px;
+  color: #333333;
+  text-decoration: none;
+}
+.amInfo:hover{color: #000000;}
+
+.infoParentNarrow{
+  display: none;
+}
+
+@media (max-device-width: 950px), (max-width: 950px) {
+
+  .infoParent{
+    display: none;
+  }
+  .infoParentNarrow{
+    display:block;
+    width: 950px;
+    height: 100%;
+    align-items: center;
+    position: relative;
+  }
+}
+
+
+/*---------------------- IPAD & MOBILE --------------------*/
+@media (max-device-width: 950px), (max-width: 950px) {
+
+  #headerLogo{
+    top:1px;
+    height:70px;
+  }
+  #hamImg{
+    position: relative;
+    top:2px;
+    height:70px;
+  }
+
+  .menuContainer{
+    width: 100%;
+  }
+  .container{
+    width: 100%;
+  }
+
+  .dLine{width: 100%;}
+  .pressParent{width: 100%;}
+  .infoParent{width: 100%;}
+  
+  .filler{width: 100%;}
+
+  .menuContainer{
+    display: none;
+    width: 100%;
+  }
+  .menuHamburger{
+    display: block;
+    cursor: pointer;
+  }
+  .menuHamburger:hover{
+    background-color: #F9F9F9;
+  }
+  
+  nav {
+    background-color: yellow;
+    float: right;
+    max-height: 0.3s;
+    width: 100%;
+    
+  }
+  nav a {
+    padding: 10px;
+    width: 100%;
+    /*color: #FF0000;*/
+    text-decoration: none;
+    font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  }
+}
+/*---------------------- MOBILE ONLY --------------------*/
+@media (max-width: 812px) {
+  .parterNarrowContainer{width:100%;}
+
+  #logoTop{display:none;}
+  #logoTopMobile{display:block}
+  #menuHamburgerMobile{display:block;cursor: pointer;}
+  #menuHamburger{display: none}
+
+  #hamImgM{
+    position: relative;
+    top:2px;
+    height:91px;
+  }
+
+}
+

@@ -1,0 +1,171 @@
+@font-face {
+    font-family: 'AkkuratLLWeb-Bold';
+    src: url('/AkkuratLLWeb-Bold.woff2') format('woff2');
+}
+
+.flex-container {
+    display: flex;
+    height: 115px;
+    justify-content: center;
+    margin: 10px;
+}
+
+    .flex-container > div {
+        width: var(--width);
+        margin: 5px;
+        background-size: 197.5px 116.5px;
+        position: relative;
+        text-align: center;
+        color: transparent;
+    }
+.flex-container > div:hover {
+    width: var(--width);
+    margin: 5px;
+    /*webkit-filter: blur(4px); /* Chrome, Safari, Opera 
+    filter: blur(4px);*/
+    color: black;
+}
+
+    .testing > img:hover {
+        webkit-filter: blur(4px); /* Chrome, Safari, Opera */
+        filter: blur(4px) grayscale(100%);
+    }
+
+.article-image {
+    height: 116.5px;
+    width: 197.5px;
+}
+
+.article-image:hover{
+    box-shadow: 3px 3px 11px black;
+}
+
+    .article-image:before {
+        justify-content: center;
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-image: var(--background);
+        background-size: 100% 100%;
+        -webkit-filter: grayscale(0) blur(0);
+        filter: grayscale(0) blur(0);
+    }
+
+    .article-image:hover:before {
+        justify-content: center;
+        -webkit-filter: blur(1px);
+        filter: blur(1px);
+        box-shadow: 0 0 1px white inset;
+    }
+
+.ar-image {
+    justify-content:center;
+    position: relative;
+    width: 197.5px;
+    height: 116.5px;
+}
+
+.article-image > p {
+    display: none;
+}
+
+
+.article-image:hover > p {
+    border-radius: 25px;
+    transition: all 0.20s linear 0s;
+    -webkit-transition: all 0.20s linear 0s;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    display: block;
+    color: black;
+    font-size: 16.8px;
+    font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+    z-index: 999;
+    text-align: center;
+    text-shadow: 0 0 4px white;
+    line-height: 50px;
+    height: fit-content;
+    width: 165px;
+    background-color: white;
+    opacity: .9;
+}
+
+
+.textdownload {
+    height:116.5px;
+    width:592.5px;
+    border: 1px solid grey;
+
+}
+    .textdownload > h6 {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        display: block;
+        color: black;
+        font-size: 30px;
+        font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+        z-index: 999;
+        text-align: center;
+        text-shadow: 0 0 4px white;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+    }
+
+    .textdownload > p {
+        position: absolute;
+        top: 70px;
+        left: 30px;
+        display: block;
+        color: black;
+        font-size: 16.8px;
+        font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+        z-index: 999;
+        text-align: center;
+        text-shadow: 0 0 4px white;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+    }
+
+    .textdownload:hover {
+        height: 116.5px;
+        width: 592.5px;
+        border: 1px solid grey;
+        background-color: #F3F3F3;
+    }
+
+    .textdownload:hover > h6 {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        display: block;
+        color: black;
+        font-size: 30px;
+        font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+        z-index: 999;
+        text-align: center;
+        text-shadow: 0 0 4px white;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+    }
+
+    .textdownload:hover > p {
+        position: absolute;
+        top: 70px;
+        left: 30px;
+        display: block;
+        color: black;
+        font-size: 16.8px;
+        font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+        z-index: 999;
+        text-align: center;
+        text-shadow: 0 0 4px white;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+    }

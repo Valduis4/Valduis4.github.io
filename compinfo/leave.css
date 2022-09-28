@@ -1,0 +1,13 @@
+.A_FormBox {
+    width: 400px;
+    height: fit-content;
+    background-color: #FFFFFF;
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.03) 0px 3px 14px;
+}

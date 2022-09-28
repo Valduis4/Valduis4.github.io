@@ -1,0 +1,489 @@
+@font-face {
+  font-family: 'AkkuratLLWeb-Regular';
+  src: url('AkkuratLLWeb-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'AkkuratLLWeb-Bold';
+  src: url('AkkuratLLWeb-Bold.woff2') format('woff2');
+}
+body {
+  background-color: white;
+  margin: 0px;
+  padding: 0px;
+}
+
+/*------------------------ HEADERS ------------------------*/
+
+h1 {
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  color: black;
+  font-size: 54px;
+}
+h2 {
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  color: black;
+  font-size: 33px;
+}
+h3 {
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  color: black;
+  font-size: 26px;
+}
+
+
+.titleT {
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  color: black;
+  font-size: 28px;
+}
+
+.jobTitle {
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  color: black;
+  font-size: 25px;
+}
+
+.sectionT {
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  color: black;
+  font-size: 18px;
+}
+
+.mainT {
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  color: black;
+  font-size: 15px;
+}
+
+.contentT {
+    width: 600px;
+    height: 80px;
+    background-color: #FF00FF;
+    font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+    font-size: 24px;
+}
+
+/*------------------------ LINE DIVIDERS ------------------------*/
+.dLine {
+    border: 0;
+    height: 1px;
+    background: #C9C9C9;
+    top: 1px;
+    width: 950px;
+}
+
+.frame {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: #FFFFFF;
+}
+
+
+/*------------------------ CONTAINERS & SPACERS ------------------------*/
+.filler{background-color: #FFFFFF;width: 950px;}
+.tfiller{background-color: #FF0000;width: 100%;}
+
+.container{
+    background-color: #FFFFFF;
+    width: 950px;
+    height: 100%;
+    display: flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between;
+    align-items: center;
+    position: relative;
+
+}
+.content{
+    background-color: #FFFFFF;
+    width: 950px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: normal;
+    align-items: center;
+    position: relative;
+
+}
+.tcontainer{
+    background-color: #FFFFFF;
+    width: 780px;
+    display: flex; 
+    flex-direction:column; 
+    flex-wrap:nowrap; 
+    justify-content:space-between;
+    font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+    line-height: 1.4;
+}
+.bullets{
+    margin-left: 20px;
+    font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+    line-height: 1.7;
+}
+.icontainer{
+    background-color: #FFFFFF;
+    width: 780px;
+    height: 100%;
+    display: flex; 
+    flex-direction:column; 
+    flex-wrap:nowrap; 
+    justify-content:space-between;
+}
+
+/*######################################################*/
+/*######################################################*/
+/*######################################################*/
+/*------------------- CONTENT MOBILE ------------------*/
+
+@media (max-device-width: 950px), (max-width: 950px) {
+
+  h2{
+    font-size: 37px;
+  }
+  .tcontainer{
+      font-size: 28px;
+      width: 80%;
+      padding-left:0%;
+  }
+
+  .jobTitle {
+    font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+    color: black;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+}
+
+/*######################################################*/
+/*######################################################*/
+/*---------------------- INFO BAR ----------------------*/
+/*######################################################*/
+
+.infoParentNarrow{
+  display: none;
+}
+
+.infoParent{
+    /*background-color: #FF3333;*/
+    width: 950px;
+    height: 100%;
+    align-items: center;
+}
+
+.infoContainerWide{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  flex-direction:row;
+  /*background-color: #555555;*/
+  width: 100%;
+}
+
+.infoBoxLogo{
+  width: 140px;
+  height: 270px;
+  /*background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;*/
+  border-radius: 6px;
+  order: 0;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.infoBox{
+  width: 160px;
+  height: 270px;
+  /*background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;*/
+  border-radius: 6px;
+  order: 0;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+
+
+.info_LEdge{
+  /*background-color: #00FFFF;*/
+  width: 20px;
+}
+.info_REdge{
+  /*background-color: #FF00FF;*/
+  width: 10px;
+}
+.info_Center{
+  /*background-color: #00FFFF;*/
+  width: 158px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
+}
+
+
+.info_Spacer{height: 13px;}
+
+
+/*######################################################*/
+/*----------------- BOTTOM INFO MOBILE -----------------*/
+
+.infoContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  align-items: center;
+  flex-direction:column;
+}
+
+.aInfo{
+  /*background-color: #FF0000;*/
+  color: #777777;
+  text-decoration: none;
+  font-size: 13px;
+  
+}
+.aInfo:hover{color: #000000;}
+.aInfoB{
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  /*background-color: #FF0000;*/
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+/*Mobile version*/
+.amInfoB{
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  font-size: 38px;
+  font-weight: bold;
+}
+.amInfo{
+    /*background-color: #FF0000;*/
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  font-weight: regular;
+  font-size: 32px;
+  color: #333333;
+  text-decoration: none;
+}
+.amInfo:hover{color: #000000;}
+
+.infoParentNarrow{
+  display: none;
+}
+
+@media (max-device-width: 950px), (max-width: 950px) {
+
+  .infoParent{
+    display: none;
+  }
+  .infoParentNarrow{
+    display:block;
+    width: 950px;
+    height: 100%;
+    align-items: center;
+    position: relative;
+  }
+}
+
+
+
+
+/*######################################################*/
+/*######################################################*/
+/*----------------------- TOP MENU ---------------------*/
+/*######################################################*/
+
+.a{
+    /*background-color: red;*/
+    display:block; flex-grow:0; flex-shrink:1; order:0;
+    top: 150px;
+    cursor: pointer;
+}
+nav {
+    float: right;
+    max-height: 0.3s;
+    width: 100%;
+    
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+nav li {
+  display: inline-block;
+  text-align: center;
+
+}
+
+nav a {
+  text-align: center;
+  padding: 10px;
+  width: 100px;
+  color: #000000;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+}
+nav a:hover{
+ font-size: 16.8px;
+ color: #000;
+ font-weight: bold;
+ width: 100px;
+}
+
+.top-bar {
+  display: flex;
+  width: 100%;
+  height: 44px;
+  justify-content: center;
+  /*background-color: #0666a3;*/
+}
+.top-bar div {
+  /*background-color: #8ebf42;*/
+  padding: 10px;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+}
+.menuContainer{
+    /*background-color: cyan;*/
+    display:block; flex-grow:0; flex-shrink:1; order:0;
+}
+.menuHamburger{
+  display: none;
+}
+
+#OverlayMenuLayer{
+  visibility: hidden;
+  display:none;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+}
+
+#headerLogo{
+  position:relative;
+  top:1px;
+  height:35px;
+}
+
+#hamImg{top:2px;height:35px;}
+#logoTop{display:block;}
+#logoTopMobile{display:none}
+#menuHamburgerMobile{display:none}
+
+#menuStack{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  align-items: center;
+  flex-direction:column;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+}
+.mMenuBar{
+  position: relative;
+  padding-top:20px;
+  display: block;
+  width: 100%;
+  height: 60px;
+  border: 1px solid #EEEEEE;
+  color: #000000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  align-items: center;
+  flex-direction:column;
+  font-size:35px;
+  text-decoration:none;
+  background-color:#FFFFFF;
+}
+.mMenuBar:hover{
+  background-color:#F9F9F9;
+}
+/*---------------------- IPAD & MOBILE --------------------*/
+@media (max-device-width: 950px), (max-width: 950px) {
+
+  #headerLogo{
+    top:1px;
+    height:70px;
+  }
+  #hamImg{
+    position: relative;
+    top:2px;
+    height:70px;
+  }
+
+  .menuContainer{
+    width: 100%;
+  }
+  .container{
+    width: 100%;
+  }
+
+  .dLine{    
+    height: 2px;
+    width: 950px
+  }
+  .pressParent{width: 100%;}
+  .infoParent{width: 100%;}
+  
+  .filler{width: 100%;}
+
+  .menuContainer{
+    display: none;
+    width: 100%;
+  }
+  .menuHamburger{
+    display: block;
+    cursor: pointer;
+  }
+  .menuHamburger:hover{
+    background-color: #F9F9F9;
+  }
+  
+  nav {
+    background-color: yellow;
+    float: right;
+    max-height: 0.3s;
+    width: 100%;
+    
+  }
+  nav a {
+    padding: 10px;
+    width: 100%;
+    /*color: #FF0000;*/
+    text-decoration: none;
+    font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  }
+}
+/*---------------------- MOBILE ONLY --------------------*/
+@media (max-width: 812px) {
+  .parterNarrowContainer{width:100%;}
+
+  #logoTop{display:none;}
+  #logoTopMobile{display:block}
+  #menuHamburgerMobile{display:block;cursor: pointer;}
+  #menuHamburger{display: none}
+
+  #hamImgM{
+    position: relative;
+    top:2px;
+    height:91px;
+  }
+
+}
+

@@ -1,0 +1,46 @@
+--------------- Diagnostic: _POST --------------
+
+
+
+---- cycle POST: 
+
+key: App_Version, value: Row64_1_3_win
+
+key: CPU, value: 11th Gen Intel(R) Core(TM) i7-11700K @ 3.60GHz (16 CPUs), ~3.6GHz
+
+key: DirectX, value: DirectX 12
+
+key: GPU_1, value: NVIDIA GeForce RTX 3070
+
+key: Legal_Agreement, value: 1
+
+key: OS, value: Windows 11 Pro
+
+key: Platform, value: Windows
+
+key: RAM, value: 32.660000
+
+key: Raytracing, value: 1
+
+key: Request, value: 0
+
+key: TelemAgree, value: 1
+
+key: VRAM, value: 8.063477
+
+key: Vulkan, value: 1.3194
+
+---------------------------------------------:
+aaaaaaaaaaaaaaaa:
+bbbbbbbbbbbbbbbbbb:
+ccccccccccccccccc:
+ip: Ip
+eeeeeeeeeeeeeeeeeeeeeeeee:
+error info: Array
+(
+    [0] => 00000
+    [1] => 
+    [2] => 
+)
+-------------------------:
+----- end file ----

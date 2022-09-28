@@ -1,0 +1,798 @@
+@font-face {
+  font-family: 'AkkuratLLWeb-Regular';
+  src: url('/AkkuratLLWeb-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'AkkuratLLWeb-Bold';
+  src: url('/AkkuratLLWeb-Bold.woff2') format('woff2');
+}
+body {
+  background-color: white;
+  margin: 0px;
+  padding: 0px;
+}
+
+/*------------------------ HEADERS ------------------------*/
+
+h1 {
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  color: black;
+  text-align: center;
+  font-size: 40px;
+}
+h2 {
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  color: black;
+  font-size: 38px;
+  text-align: center;
+}
+h3 {
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  color: black;
+  font-size: 26px;
+}
+
+
+.titleT {
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  color: black;
+  font-size: 20px;
+}
+
+.mainT {
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  color: black;
+  font-size: 14px;
+}
+
+
+
+/*------------------------ FORM INPUT------------------------*/
+input[type=text] {
+   background-repeat:repeat-x;
+   border: 1px solid #D9D9D9;
+   height:25px;
+   width:100%;
+    margin: 0px;
+    padding:0px;
+   /* background-color: #FF0000;*/
+}
+
+input[type=password] {
+    background-repeat: repeat-x;
+    border: 1px solid #D9D9D9;
+    height: 25px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    /*background-color: #FF0000;*/
+}
+
+label{
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  color: black;
+  font-size: 14px;
+  height: 18px;
+  margin: 0px;
+  padding:0px
+}
+
+input[type=submit] {
+  cursor: pointer;
+  height: 32px;
+  width: 100%;
+  line-height: 32px;
+  color: #FFFFFF;
+  background-color: #286FFF;
+  font-size: 13px;
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  border-radius: 6px;
+  text-align: center;
+  z-index: 10;
+  border: 0px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input[type=submit]:hover{
+  background-color: #4991F7;
+}
+
+
+textarea
+{
+   background-repeat:repeat-x;
+   border: 1px solid #D9D9D9;
+   height:85px;
+   width:100%;
+   resize: none;
+   font-family:Arial, Helvetica, sans-serif;
+}
+
+
+select
+{
+   background-repeat:repeat-x;
+   border: 1px solid #D9D9D9;
+   height:29px;
+   width:296px;
+}
+
+/*------------------------ Text Box ----------------------------*/
+.tBox {
+    /*background-color: #721c24;*/
+    width: 950px;
+    height: 100%;
+    align-items: center;
+    font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+    font-size: 24px;
+    text-align: center;
+}
+/*------------------------ CONTACT FORM ------------------------*/
+
+.C_Parent{
+    /*background-color: #FF3333;*/
+    /*border: 1px solid #CCCCCC;*/
+    width: 800px;
+    height: 100%;
+    align-items: center;
+    position: relative;
+}
+
+.C_Outer{
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  align-items: center;
+  flex-direction:column;
+}
+
+
+.C_LabelBox{
+  width: 300px;
+  height: 100%;
+  margin-left: 15px;
+  margin-right: 15px;
+  background-color: #F7F8F9;
+  border-radius: 6px;
+  order: 0;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.C_TopLabelBox{
+  width: 300px;
+  height: 100%;
+  margin-left: 15px;
+  margin-right: 15px;
+  background-color: #F7F8F9;
+  border-radius: 6px;
+  order: 0;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+
+.C_Spacer{
+  width: 100%;
+  height: 30px;
+  /*background-color: #00FFFF;*/
+}
+
+.C_FormBox{
+  width: 800px;
+  height: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #EEEEEE;
+  border-radius: 5px;
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: left;
+  box-shadow: rgba(0, 0, 0, 0.03) 0px 3px 14px;
+}
+
+
+
+.C_Edge{
+  /*background-color: #0055FF;*/
+}
+
+.C_Center{
+  width: 290px;
+  height; 100%;
+  /*background-color: #00FF77;*/
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+
+
+
+
+
+/*------------------------ LINE DIVIDERS ------------------------*/
+.dLine {
+    border: 0;
+    height: 1px;
+    background: #C9C9C9;
+    top: 1px;
+    width: 950px;
+}
+
+.frame {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: #FFFFFF;
+}
+
+
+/*------------------------ CONTAINERS & SPACERS ------------------------*/
+.filler{background-color: #FFFFFF;width: 950px;}
+
+.container{
+    background-color: #FFFFFF;
+    width: 950px;
+    height: 100%;
+    display: flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between;
+    align-items: center;
+    position: relative;
+
+}
+
+.CM_Parent{
+  display: none;
+}
+.CM_Outer{
+  display: none;
+}
+
+C_Edge{
+}
+
+/*######################### GENERAL MOBILE #############################*/
+
+@media (max-device-width: 950px), (max-width: 950px) {
+
+  .C_EdgeMobile{
+    width:25%
+  }
+
+  h1{
+    font-size: 47px;
+  }
+  .C_Outer{
+    display: none;
+    border: 10px solid #CCCCCC;
+  }
+
+  .C_Parent{
+  }
+
+  .C_TopLabelBox{
+    width: 100%;
+    margin-left: 30px;
+  }
+  .C_LabelBox{
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .CM_Parent{
+    display: block;
+    width: 700px;
+  }
+  .CM_Outer{
+    display: block;
+    width: 100%;
+  }
+  .titleT{
+    width: 100%;
+    font-size: 34px;
+  }
+  .mainT{
+    font-size: 26px;
+  }
+
+  .frame{
+    background-color: #F7F8F9;
+  }
+  .C_FormBox{
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid #EEEEEE;
+    border-radius: 0px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.03) 0px 3px 14px;
+  }
+
+  input[type=text] {
+    background-repeat:repeat-x;
+    border: 2px solid #A7A7A7;
+    height:45px;
+    width:100%;
+    margin: 0px;
+    padding:0px;
+      /*background-color: #FF0000;*/
+    font-size:26px;
+  }
+    input[type=password] {
+        background-repeat: repeat-x;
+        border: 2px solid #A7A7A7;
+        height: 45px;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        /*background-color: #FF0000;*/
+        font-size: 26px;
+    }
+
+  label{
+    font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+    color: black;
+    font-size: 26px;
+    height: 18px;
+    margin: 0px;
+    padding:0px
+  }
+
+  input[type=submit] {
+    cursor: pointer;
+    height: 32px;
+    width: 100%;
+    line-height: 32px;
+    color: #FFFFFF;
+    background-color: #286FFF;
+    font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+    border-radius: 6px;
+    text-align: center;
+    z-index: 10;
+    border: 0px;
+    height:45px;
+    font-size:26px;
+
+  }
+
+  input[type=submit]:hover{
+    background-color: #4991F7;
+  }
+
+  textarea
+  {
+     background-repeat:repeat-x;
+     border: 2px solid #A7A7A7;
+     height:185px;
+     width:100%;
+     font-size:26px;
+     resize: none;
+     font-family:Arial, Helvetica, sans-serif;
+  }
+
+  select
+  {
+     background-repeat:repeat-x;
+     border: 2px solid #A7A7A7;
+     height:45px;
+     font-size:26px;
+     width:526px;
+  }
+
+
+}
+
+/*------------- PHONE SPECIFIC --------------*/
+
+@media (max-width: 812px) {
+
+  .C_EdgeMobile{
+    width:8%
+  }
+  h1{
+    font-size: 47px;
+  }
+  .C_Outer{
+    display: none;
+    border: 10px solid #CCCCCC;
+  }
+
+  .C_Parent{
+  }
+
+  .C_TopLabelBox{
+    width: 93%;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .C_LabelBox{
+    width: 100%;
+  }
+  .CM_Parent{
+    display: block;
+    width: 100%;
+  }
+  .CM_Outer{
+    display: block;
+    width: 100%;
+  }
+  .titleT{
+    width: 100%;
+    font-size: 34px;
+  }
+  .mainT{
+    font-size: 26px;
+  }
+
+  .frame{
+    background-color: #F7F8F9;
+  }
+  .C_FormBox{
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    border: 0px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+
+  input[type=text] {
+    background-repeat:repeat-x;
+    border: 2px solid #A7A7A7;
+    height:65px;
+    width:100%;
+    margin: 0px;
+    padding:0px;
+      /*background-color: #FF0000;*/
+    font-size:32px;
+  }
+
+    input[type=password] {
+        background-repeat: repeat-x;
+        border: 2px solid #A7A7A7;
+        height: 65px;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        /*background-color: #FF0000;*/
+        font-size: 32px;
+    }
+
+  label{
+    font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+    color: black;
+    font-size: 32px;
+    height: 65px;
+    margin: 0px;
+    padding:0px
+  }
+
+  input[type=submit] {
+    cursor: pointer;
+    height: 65px;
+    width: 100%;
+    line-height: 32px;
+    color: #FFFFFF;
+    background-color: #286FFF;
+    font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+    border-radius: 6px;
+    text-align: center;
+    z-index: 10;
+    border: 0px;
+    height:65px;
+    font-size:32px;
+
+  }
+
+  input[type=submit]:hover{
+    background-color: #4991F7;
+  }
+
+  textarea
+  {
+     background-repeat:repeat-x;
+     border: 2px solid #A7A7A7;
+     height:185px;
+     width:100%;
+     font-size:32px;
+     resize: none;
+     font-family:Arial, Helvetica, sans-serif;
+  }
+
+  select
+  {
+     background-repeat:repeat-x;
+     border: 2px solid #A7A7A7;
+     height:65px;
+     font-size:32px;
+     width:100%;
+  }
+
+
+}
+
+
+
+/*######################################################*/
+/*######################################################*/
+/*---------------------- INFO BAR ----------------------*/
+/*######################################################*/
+
+.infoParentNarrow{
+  display: none;
+}
+
+.infoParent{
+    /*background-color: #FF3333;*/
+    width: 950px;
+    height: 100%;
+    align-items: center;
+}
+
+.infoContainerWide{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  flex-direction:row;
+  /*background-color: #555555;*/
+  width: 100%;
+}
+
+.infoBoxLogo{
+  width: 140px;
+  height: 270px;
+  /*background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;*/
+  border-radius: 6px;
+  order: 0;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.infoBox{
+  width: 160px;
+  height: 270px;
+  /*background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;*/
+  border-radius: 6px;
+  order: 0;
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+
+
+.info_LEdge{
+  /*background-color: #00FFFF;*/
+  width: 20px;
+}
+.info_REdge{
+  /*background-color: #FF00FF;*/
+  width: 10px;
+}
+.info_Center{
+  /*background-color: #00FFFF;*/
+  width: 158px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
+}
+
+
+.info_Spacer{
+  height: 13px;
+  }
+
+
+
+
+/*######################################################*/
+/*----------------- BOTTOM INFO MOBILE -----------------*/
+
+
+.infoContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  align-items: center;
+  flex-direction:column;
+}
+
+.aInfo{
+  /*background-color: #FF0000;*/
+  color: #777777;
+  text-decoration: none;
+  font-size: 13px;
+  
+}
+.aInfo:hover{color: #000000;}
+.aInfoB{
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  /*background-color: #FF0000;*/
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+/*Mobile version*/
+.amInfoB{
+  font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+  font-size: 38px;
+  font-weight: bold;
+}
+.amInfo{
+    /*background-color: #FF0000;*/
+  font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  font-weight: regular;
+  font-size: 32px;
+  color: #333333;
+  text-decoration: none;
+}
+.amInfo:hover{color: #000000;}
+
+.infoParentNarrow{
+  display: none;
+}
+
+.infoSpace {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: #FFFFFF;
+}
+
+@media (max-device-width: 950px), (max-width: 950px) {
+
+  .infoSpace {
+    background-color: #F7F8F9;
+  }
+  .infoParent{
+    display: none;
+  }
+  .infoParentNarrow{
+    display:block;
+    width: 950px;
+    height: 100%;
+    align-items: center;
+    position: relative;
+  }
+}
+
+
+/*---------------------- IPAD & MOBILE --------------------*/
+@media (max-device-width: 950px), (max-width: 950px) {
+
+  #headerLogo{
+    top:1px;
+    height:70px;
+  }
+  #hamImg{
+    position: relative;
+    top:2px;
+    height:70px;
+  }
+
+  .menuContainer{
+    width: 100%;
+  }
+  .container{
+    width: 100%;
+  }
+
+  .dLine{width: 100%;}
+  .pressParent{width: 100%;}
+  .infoParent{width: 100%;}
+  
+  .filler{width: 100%;}
+
+  .menuContainer{
+    display: none;
+    width: 100%;
+  }
+  .menuHamburger{
+    display: block;
+    cursor: pointer;
+  }
+  .menuHamburger:hover{
+    background-color: #F9F9F9;
+  }
+  
+  nav {
+    background-color: yellow;
+    float: right;
+    max-height: 0.3s;
+    width: 100%;
+    
+  }
+  nav a {
+    padding: 10px;
+    width: 100%;
+    /*color: #FF0000;*/
+    text-decoration: none;
+    font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+  }
+}
+/*---------------------- MOBILE ONLY --------------------*/
+@media (max-width: 812px) {
+  .parterNarrowContainer{width:100%;}
+
+  #logoTop{display:none;}
+  #logoTopMobile{display:block}
+  #menuHamburgerMobile{display:block;cursor: pointer;}
+  #menuHamburger{display: none}
+
+  #hamImgM{
+    position: relative;
+    top:2px;
+    height:91px;
+  }
+  
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+
+element.style {
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}

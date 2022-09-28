@@ -1,0 +1,156 @@
+@font-face {
+    font-family: 'AkkuratLLWeb-Regular';
+    src: url('/AkkuratLLWeb-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'AkkuratLLWeb-Bold';
+    src: url('/AkkuratLLWeb-Bold.woff2') format('woff2');
+}
+
+h1 {
+    font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+    color: black;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+    color: black;
+    text-align: center;
+}
+
+h3 {
+    font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+    color: black;
+    text-align: center;
+}
+
+p{
+    font-family: 'AkkuratLLWeb-Regular', Fallback, sans-serif;
+    color: black;
+    text-align: center;
+    margin:0px;
+}
+
+a{
+    text-decoration:none;
+    color: #1189F2;
+}
+
+input[type=submit] {
+    cursor: pointer;
+    height: 32px;
+    width: 100%;
+    line-height: 32px;
+    color: #FFFFFF;
+    background-color: #1969F7;
+    font-size: 13px;
+    font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+    border-radius: 6px;
+    text-align: center;
+    z-index: 10;
+    border: 0px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    max-width: 300px;
+}
+
+input[type=submit]:hover{
+    background-color: #3190F7;
+}
+
+input[type=text] {
+    background-repeat: repeat-x;
+    border: 1px solid #D9D9D9;
+    height: 25px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    max-width: 300px;
+}
+
+input[type=password] {
+    background-repeat: repeat-x;
+    border: 1px solid #D9D9D9;
+    height: 25px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    max-width: 300px;
+}
+
+textarea{
+    background-repeat: repeat-x;
+    border: 1px solid #D9D9D9;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    max-width: 300px;
+}
+
+@media (max-device-width: 950px), (max-width: 950px) {
+    input[type=submit] {
+        cursor: pointer;
+        height: 32px;
+        width: 99%;
+        line-height: 32px;
+        color: #FFFFFF;
+        background-color: #1969F7;
+        font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+        border-radius: 6px;
+        text-align: center;
+        z-index: 10;
+        border: 0px;
+        height:45px;
+        font-size:26px;
+    }
+
+    input[type=submit]:hover{
+        background-color: #3190F7;
+    }
+
+    input[type=text] {
+        background-repeat:repeat-x;
+        border: 2px solid #A7A7A7;
+        height:45px;
+        width:99%;
+        margin: 0px;
+        padding:0px;
+        font-size:26px;
+    }
+
+    input[type=password] {
+        background-repeat: repeat-x;
+        border: 2px solid #A7A7A7;
+        height: 45px;
+        width: 99%;
+        margin: 0px;
+        padding: 0px;
+        font-size: 26px;
+    }
+
+    textarea{
+        background-repeat:repeat-x;
+        border: 2px solid #A7A7A7;
+        width:99%;
+        margin: 0px;
+        padding:0px;
+        font-size:26px;
+    }
+}
+
+/* ##### Classes ##### */
+
+.BlueCard{
+    font-family: 'AkkuratLLWeb-Bold', Fallback, sans-serif;
+    background-color:#E2EEF7;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px grey;
+    margin-bottom: 15px;
+    width:100%;
+    max-width: 950px;
+    text-align: center;
+    justify-content: center;
+}

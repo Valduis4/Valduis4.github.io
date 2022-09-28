@@ -1,0 +1,89 @@
+.table {
+    display: grid;
+    grid-template-columns: [col-start] auto [col-end];
+    grid-template-rows: [header-start] 50px [header-end row-start] auto [row-end];
+    grid-auto-rows: auto;
+    grid-auto-columns: auto;
+    grid-gap: 0px;
+    overflow: hidden;
+    background: #FFFFFF;
+    border-color:grey;
+    grid-row-gap:1px;
+}
+
+    .table > * {
+        padding: 10px;
+        position: relative;
+    }
+
+.heading {
+    background: #FFFFFF;
+    color: #000000;
+    grid-row: header;
+    border-bottom: 2px solid grey;
+    font-weight: bold;
+}
+
+.row span {
+    position: relative;
+    z-index: 1;
+}
+
+/*.row:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -1000%;
+    left: -1000%;
+    z-index: 1;
+    border-bottom: 1px solid grey;
+}
+
+.row:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 2px;
+    right: 0px;
+    width: 0px;
+    z-index: 2;
+    background-color: grey;
+}
+
+.row:nth-child(5n+5)::after {
+    bottom: -1px;
+    right: 0;
+    left: -1000%;
+    height: 1px;
+    z-index: 3;
+    width: auto;
+    top: auto;
+    background-color: #fff;
+}
+
+.row:hover::before {
+    background-color: #3190F7;
+}*/
+
+.anchor{
+    z-index:2;
+    display:contents;
+    border-bottom: 1px solid grey;
+}
+
+.line > div{
+    border-bottom: 1px solid grey;
+}
+.anchor:hover > div{
+    background-color: #DEDEDE;
+}
+
+.target > div{
+    background-color: #1969F7;
+}
+
+.type{
+    justify-content:right;
+    padding: 0px 30px 0px 60px;
+}
