@@ -1,9 +1,0 @@
-
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www.row64.com [NC]
-RewriteRule ^(.*)$ http://row64.com/$1 [L,R=301]
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://row64.com/$1 [L,R=301]
-
-RewriteCond %{REQUEST_URI} ^/index.php$
-RewriteRule . / [R=302,L]

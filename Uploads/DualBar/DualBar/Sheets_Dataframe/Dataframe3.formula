@@ -1,2 +1,0 @@
-LOADCSV("dogs")
-DUALBAR(A:A,B:B,C:C,"Average Weight (lbs)","Average Height (inches)")

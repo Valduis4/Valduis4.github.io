@@ -77,15 +77,15 @@ function priceSwitch(){
   if( document.getElementById("switch").checked ){ 
     // ----------------- Monthly Prices -----------------
     document.getElementById("label").style.backgroundColor = "#1189F2"
-    document.getElementById("PlusPrice").innerHTML = "$20"
-    document.getElementById("ProPrice").innerHTML = "$80"
-    document.getElementById("PlusPriceDesc").innerHTML = "Billed as $240 Yearly"
-    document.getElementById("ProPriceDesc").innerHTML = "Billed as $960 Yearly"
+    document.getElementById("PlusPrice").innerHTML = "$240"
+    document.getElementById("ProPrice").innerHTML = "$960"
+    document.getElementById("PlusDetail").innerHTML = "yearly per user"
+    document.getElementById("ProDetail").innerHTML = "yearly per user"
 
-    document.getElementById("PlusPriceM").innerHTML = "$20"
-    document.getElementById("ProPriceM").innerHTML = "$80"
-    document.getElementById("PlusPriceDescM").innerHTML = "Billed as $240 Yearly"
-    document.getElementById("ProPriceDescM").innerHTML = "Billed as $960 Yearly"
+    // document.getElementById("PlusPriceM").innerHTML = "$20"
+    // document.getElementById("ProPriceM").innerHTML = "$80"
+    // document.getElementById("PlusPriceDescM").innerHTML = "monthly per user"
+    // document.getElementById("ProPriceDescM").innerHTML = "monthly per user"
 
 
     var divList = document.getElementsByClassName("PR_ButtonMonth");
@@ -105,13 +105,13 @@ function priceSwitch(){
     document.getElementById("label").style.backgroundColor = "#AAAAAA"
     document.getElementById("PlusPrice").innerHTML = "$25"
     document.getElementById("ProPrice").innerHTML = "$100"
-    document.getElementById("PlusPriceDesc").innerHTML = "Save 20% With Yearly Pricing"
-    document.getElementById("ProPriceDesc").innerHTML = "Save 20% With Yearly Pricing"
+    document.getElementById("PlusDetail").innerHTML = "monthly per user"
+    document.getElementById("ProDetail").innerHTML = "monthly per user"
 
-    document.getElementById("PlusPriceM").innerHTML = "$25"
-    document.getElementById("ProPriceM").innerHTML = "$100"
-    document.getElementById("PlusPriceDescM").innerHTML = "Save 20% With Yearly Pricing"
-    document.getElementById("ProPriceDescM").innerHTML = "Save 20% With Yearly Pricing"
+    // document.getElementById("PlusPriceM").innerHTML = "$25"
+    // document.getElementById("ProPriceM").innerHTML = "$100"
+    // document.getElementById("PlusPriceDescM").innerHTML = "Save 20% With Yearly Pricing"
+    // document.getElementById("ProPriceDescM").innerHTML = "Save 20% With Yearly Pricing"
 
     var divList = document.getElementsByClassName("PR_ButtonYear");
     for(var i = 0; i < divList.length; i++){
