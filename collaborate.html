@@ -1,6 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
      <head>
+       <!-- Hypertune Snippet Start -->
+<script>
+window.hypertune = {
+    getFrom: function(source, path, fallback) {
+        var result = source;
+        for (var i = 0; i < path.length; ++i) {
+            if (typeof result == 'undefined') {
+                return fallback;
+            }
+            result = result[path[i]];
+        }
+        return typeof result == 'undefined' ? fallback : result;
+    },
+    get: function(path, fallback) {
+        return window.hypertune.getFrom(window.hypertune.value, path, fallback);
+    },
+    writeFrom: function(source, path, fallback) {
+        document.writeln(window.hypertune.getFrom(source, path, fallback));
+    },
+    write: function(path, fallback) {
+        window.hypertune.writeFrom(window.hypertune.value, path, fallback);
+    },
+    send: function(query, variables) {
+        //
+    },
+    value: {}
+};
+
+</script>
+
+<script>
+function ctaClick() {
+    var user_id = window.hypertune.get(['root', 'content', 'user_id'], null);
+    if (!user_id) {
+        return;
+    }
+    window.hypertune.send("query($user_id: String!, $referer: String!) { root(user_id: $user_id, referer: $referer) { events { cta_click } } }", {
+        "user_id": user_id,
+        "referer": "#REFERER#"
+    });
+}
+</script>
+
+<!-- Query: query($user_id: String!, $referer: String!) {
+	root(user_id: $user_id, referer: $referer) {
+		content {
+			headline
+			hero_text
+			image_url
+			cta
+			sections
+			user_id
+		}
+	}
+}
+
+Variables: {
+  "user_id": "#UID#",
+  "referer": "#REFERER"
+} -->
+<script src="https://hypertune.edgecompute.app/22.js?token=U2FsdGVkX1%2BllTRQEE266myXW%2Fby3v1s64wAltGEUS%2BAjsyepf4ihkd3j6vFhHSA&body=%7B%22packageName%22%3A%22%22%2C%22packageVersion%22%3A%22%22%2C%22schemaVersion%22%3Anull%2C%22method%22%3A%22js%22%2C%22query%22%3A%22query(%24user_id%3A%20String!%2C%20%24referer%3A%20String!)%20%7B%5Cn%5Ctroot(user_id%3A%20%24user_id%2C%20referer%3A%20%24referer)%20%7B%5Cn%5Ct%5Ctcontent%20%7B%5Cn%5Ct%5Ct%5Ctheadline%5Cn%5Ct%5Ct%5Cthero_text%5Cn%5Ct%5Ct%5Ctimage_url%5Cn%5Ct%5Ct%5Ctcta%5Cn%5Ct%5Ct%5Ctsections%5Cn%5Ct%5Ct%5Ctuser_id%5Cn%5Ct%5Ct%7D%5Cn%5Ct%7D%5Cn%7D%5Cn%22%2C%22variables%22%3A%7B%22user_id%22%3A%22%23UID%23%22%2C%22referer%22%3A%22%23REFERER%22%7D%7D" referrerpolicy="no-referrer-when-downgrade"></script>
+<!-- Hypertune Snippet End -->
        <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-22XVR023RP"></script>
         <script>
@@ -107,16 +169,11 @@
                          <div id="zYWqkhocnBJrf0fR" style="z-index:7;position:relative;">
                               <div id="Z6Td1Fe9r2EhaRiA" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
                                    <div id="gVqynokSOCjwYtfr" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="rvBzjadJDQMYigLI" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.21em;">
-                                             <span id="DAn9dkffVFoQVxX9" style="color:#1869f7;font-weight:700;">Collaborate </span>
-                                             <span id="vcN00x1IImEiw510"
-                                             style="color:#000000;font-weight:700;">on data-based decisions </span>
-                                             <span
-                                             id="uDVz5boq3mwPmuHB" style="color:#1869f7;font-weight:700;">faster</span>
-                                                  <span id="qS9yfAUMVXmOiwcC"
-                                                  style="color:#000000;font-weight:700;">.</span>
-                                                  <br>
-                                        </p>
+                                     <script>
+                                        var fallbackHeadline = '<p id="rvBzjadJDQMYigLI" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.21em;"><span id="DAn9dkffVFoQVxX9" style="color:#1869f7;font-weight:700;">Collaborate </span><span id="vcN00x1IImEiw510"style="color:#000000;font-weight:700;">on data-based decisions </span><spanid="uDVz5boq3mwPmuHB" style="color:#1869f7;font-weight:700;">faster</span><span id="qS9yfAUMVXmOiwcC"style="color:#000000;font-weight:700;">.</span><br></p>';
+                                        window.hypertune.write(['root', 'content', 'headline'], fallbackHeadline);
+                                      </script>
+
                                    </div>
                               </div>
                          </div>
@@ -124,15 +181,13 @@
                               <div id="jDCu6dBq85T7zUa3" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
                                    <div id="RjY06GjEnHCFq9AK" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
                                         <p id="WXyutUVjsmTjKzy5" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.5em;">
-                                             <span id="p71OB0J6DBkZzK76" style="color:#000000;">Row64 helps product and data teams
-                                                  collaborate and uncover business
-                                                  insights faster. Data scientists
-                                                  can create re-usable python scripts
-                                                  that business teams can use with
-                                                  a simple spreadsheet interface.
-                                                  Analyze data, share results,
-                                                  and create powerful visualization
-                                                  in literally seconds.</span>
+                                             <span id="p71OB0J6DBkZzK76" style="color:#000000;">
+                                               <script>
+                                                var fallbackHeroText = 'Row64 helps product and data teams collaborate and uncover business insights faster. Data can create re-usable python scripts that business teams can use with a simple spreadsheet interface. Analyze data, share results, and create powerful visualization in literally seconds.';
+                                                window.hypertune.write(['root', 'content', 'hero_text'], fallbackHeroText);
+                                               </script>
+
+                                                </span>
                                              <br>
                                         </p>
                                    </div>
@@ -152,9 +207,15 @@
                          <div id="LOGP1DO3g0J3zYLd" style="z-index:2;position:relative;">
                               <div id="muKoYLmVysWQTq2f" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
                                    <div id="SCJkQkXQhaMIvpm1" style="flex-direction:column;display:flex;width:100%;justify-content:center;opacity:1.0;height:100%;">
-                                        <p id="pMPlKKPuEZVMUi3L" style="text-transform:none;color:#ffffff;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;text-align:center;"><a id="Eifhoa79rExAsGLD" target="_blank"
+
+                                        <p id="pMPlKKPuEZVMUi3L" style="text-transform:none;color:#ffffff;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;text-align:center;"><a id="Eifhoa79rExAsGLD"  onclick="ctaClick();" target="_blank"
                                              rel="noopener" href="https://row64.com/Download/?utm_source=lp&utm_campaign=ER2_LP&utm_id=collaborate&utm_content=LP_signup_middle"
-                                             style="text-decoration-line:underline;color:#ffffff;font-weight:700;pointer-events:all;">START HERE</a>
+                                             style="text-decoration-line:underline;color:#ffffff;font-weight:700;pointer-events:all;">
+                                             <script>
+                                              var fallbackcta = 'START HERE';
+                                              window.hypertune.write(['root', 'content', 'cta'], fallbackcta);
+                                             </script>
+                                           </a>
                                              <br>
                                         </p>
                                    </div>
@@ -166,9 +227,12 @@
                                         <div id="eIE2KK4nuBnHFzNk" style="width:100%;opacity:1.0;height:100%;">
                                              <div id="HNXkVNvrDev8faw1" style="transform:scale(1, 1);overflow:hidden;width:100%;height:100%;">
                                                   <div id="lhl11z2MU4Qcdero" style="transform:rotate(0deg);top:0%;left:-49.71834064%;width:199.43668128%;position:relative;opacity:1.0;height:100%;animation:anim-pulse 1.5s ease-in-out infinite;">
-                                                       <img src="https://crowdtamers.my.canva.site/row64/images/6b958ec20cd8f27ea2f32afec5809182.jpg"
-                                                       alt="Colorful Gradient"
-                                                       loading="lazy" style="width:100%;height:100%;">
+                                                      <script>
+                                                      var fallbackImageURL = "https://crowdtamers.my.canva.site/row64/images/5fdd9816a54eafe601290a18df1eb395.png";
+                                                      document.write('<img src="');
+                                                      window.hypertune.write(['root', 'content', 'image_url'], fallbackImageURL);
+                                                      document.write('" alt="Colorful Gradient" loading="lazy" style="width:100%;height:100%;">');
+                                                       </script>
                                                   </div>
                                              </div>
                                         </div>
@@ -204,603 +268,32 @@
                          </div>
                     </div>
                </section>
-               <section id="yQqibFmHpEgoNOdy" style="z-index:0;overflow:hidden;grid-template-columns:auto min(100vw, 1366px) auto;display:grid;margin-top:-1px;position:relative;align-items:center;">
-                    <div id="ltElTcZgurTqEPEj" style="background-color:#ffffff;transform:scale(1, 1);overflow:hidden;width:100%;opacity:1.0;height:100%;top:0%;left:0%;position:absolute;"></div>
-                    <div id="KjAC8RbutFNGzpsk" style="display:grid;grid-column:2;position:relative;">
-                         <div id="k8JzVl0FoKscqNyY" style="z-index:1;position:relative;">
-                              <div id="mup3bO47VDuLu8sa" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <svg id="pndiOsbTiVgdmRCE" viewBox="0 0 326.8747 117.622"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="vRbOfzbbbmdDLUco" style="transform:scale(1, 1);">
-                                             <path id="nknlVKkEAXiYiP4H" d="M10.00000041,0.0 L316.87469442,0.0 C322.39754214,0.0 326.87469482,4.4771526900000005 326.87469482,10.00000041 L326.87469482,107.62204702 C326.87469482,113.14489474 322.39754214,117.62204742 316.87469442,117.62204742 L10.00000041,117.62204742 C4.4771526900000005,117.62204742 0.0,113.14489474 0.0,107.62204702 L0.0,10.00000041 C0.0,4.47715268 4.4771526900000005,0.0 10.00000041,0.0 Z"
-                                             style="fill:#e2eef7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                                   <svg id="sdBVZ1aZzkivNRdW" viewBox="0 0 268.642 97.8804"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="IkLRl2qKU7AaQjPa" style="transform:scale(1, 1);">
-                                             <path id="ezCw3GvvMGpuJUu7" d="M8.21850118,0.0 L260.42346659000003,0.0 C262.60314862,0.0 264.69355656,0.86587532 266.23482451,2.4071432600000002 267.77609245,3.94841121 268.64196777,6.03881915 268.64196777,8.21850118 L268.64196777,89.66188517 C268.64196777,91.8415672 267.77609246000003,93.93197514 266.23482451,95.47324309 264.69355656,97.01451103000001 262.60314863,97.88038635000001 260.42346659000003,97.88038635000001 L8.21850118,97.88038635000001 C6.03881915,97.88038635000001 3.94841121,97.01451104 2.40714327,95.47324309 0.86587532,93.93197514 0.0,91.84156721000001 0.0,89.66188517 L0.0,8.21850118 C0.0,6.03881915 0.86587532,3.94841121 2.4071432600000002,2.40714327 3.94841121,0.86587532 6.03881914,0.0 8.21850118,0.0 Z"
-                                             style="fill:#e2eef7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                                   <svg id="W9WiUiDpXi0TPgHb" viewBox="0 0 198.0952 80.5197"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="KjFGFPDGFdvwPcEh" style="transform:scale(1, 1);">
-                                             <path id="Lk6pmVBuTE9rxS2U" d="M6.06027961,0.0 L192.03496575,0.0 C193.64225183,0.0 195.18370767000002,0.63849191 196.32023056,1.7750148000000001 197.45675345,2.91153769 198.09524536,4.45299352 198.09524536,6.06027961 L198.09524536,74.45946526 C198.09524536,76.06675135 197.45675345,77.60820718000001 196.32023056,78.74473007 195.18370767000002,79.88125296 193.64225184,80.51974487 192.03496575,80.51974487 L6.06027961,80.51974487 C4.4529935300000005,80.51974487 2.91153769,79.88125296 1.7750148000000001,78.74473007 0.63849191,77.60820718000001 0.0,76.06675135 0.0,74.45946526 L0.0,6.06027961 C0.0,4.4529935300000005 0.63849191,2.91153769 1.7750148000000001,1.7750148000000001 2.91153769,0.63849191 4.45299352,0.0 6.06027961,0.0 Z"
-                                             style="fill:#e2eef7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                                   <svg id="SdjUlqiZ4UdIxVNG" viewBox="0 0 125.4902 63.9783"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="jLhOOonagnnAKOf0" style="transform:scale(1, 1);">
-                                             <path id="AB4reAX6ddiS0YVM" d="M3.8390920200000003,0.0 L121.65110421,0.0 C123.77137619,0.0 125.49019623000001,1.71882005 125.49019623000001,3.8390920200000003 L125.49019623000001,60.13925195 C125.49019622,62.25952392 123.77137618,63.978343960000004 121.65110421,63.978343960000004 L3.8390920200000003,63.978343960000004 C1.71882004,63.978343960000004 0.0,62.25952392 0.0,60.13925195 L0.0,3.8390920200000003 C0.0,1.71882004 1.71882005,0.0 3.8390920200000003,0.0 Z"
-                                             style="fill:#e2eef7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                                   <svg id="LcyxZUVVoV8o0syJ" viewBox="0 0 96.5737 56.2707"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="vZww8VODGteBOMin" style="transform:scale(1, 1);">
-                                             <path id="VIOY48OdsZ6QV3Cl" d="M2.95445637,0.0 L93.61919781,0.0 C95.250899,0.0 96.57365417,1.32275518 96.57365417,2.95445637 L96.57365417,53.31622311 C96.57365417,54.947924300000004 95.250899,56.270679470000005 93.61919781,56.270679470000005 L2.95445637,56.270679470000005 C1.32275517,56.270679470000005 0.0,54.947924300000004 0.0,53.31622311 L0.0,2.95445637 C0.0,1.32275517 1.32275517,0.0 2.95445637,0.0 Z"
-                                             style="fill:#e2eef7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                              </div>
-                         </div>
-                         <div id="wIhlRpceZUKFz3oI" style="z-index:2;position:relative;">
-                              <div id="rY3DssQjKDU088pT" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="t7Ovn4UkU4YEEr5v" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="eVPgTnv4EF4NchLu" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;">
-                                             <span id="mochg40gpLS1B65J" style="color:#000000;font-weight:700;">&quot;It&#x27;s all about </span>
-                                             <span
-                                             id="tQHCBsnX0PqqbUYc" style="color:#1869f7;font-weight:700;">Speed of investigation of large data
-                                                  sets</span>
-                                                  <span id="ExqHEsVkVbomu6AO"
-                                                  style="color:#000000;font-weight:700;">
-                                                  and how to best visualize.&quot;
-                                                       </span>
-                                                  <br>
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="HXao1YBiRQicF7Q2" style="z-index:3;position:relative;">
-                              <div id="dtMznzbvC8XklDbL" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="HKochYdti8WrwOu2" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="eP7ULBLLrKUiMGGI" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;">
-                                             <span id="NPwTqhKmVQIPYApc" style="color:#000000;">- VP of Data Science</span>
-                                             <br>
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="apyi78CgnE94RCjy" style="z-index:4;position:relative;">
-                              <div id="E1UFosxnhDiw3eWw" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="BDSod5uwyJRswswO" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="bezzaXamTKAQ9F36" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;">
-                                             <span id="s8Rgg9BzfsB4nHbx" style="color:#000000;font-weight:700;">&quot;Row64 and real-time data are
-                                                  </span>
-                                             <span id="weG2NlcrUmM3O099"
-                                             style="color:#1869f7;font-weight:700;">where the industry needs to go</span>
-                                             <span
-                                             id="voEcf6FKCnEKj7n7" style="color:#000000;font-weight:700;">. It makes sense.&quot; </span>
-                                                  <br>
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="CbXb2xo69FeYI2qK" style="z-index:5;position:relative;">
-                              <div id="EjR8ddWsTx8HtVP1" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="STL6qCzEoNmLaeyw" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="CyVxwNpfYifexMww" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;">
-                                             - VP, Data Science @ Fortune 50 analytics
-                                                  company
+               <script>
+                  var socialProofHTML = '<section id="yQqibFmHpEgoNOdy" style="z-index:0;overflow:hidden;grid-template-columns:auto min(100vw, 1366px) auto;display:grid;margin-top:-1px;position:relative;align-items:center;"> <div id="ltElTcZgurTqEPEj" style="background-color:#ffffff;transform:scale(1, 1);overflow:hidden;width:100%;opacity:1.0;height:100%;top:0%;left:0%;position:absolute;"></div> <div id="KjAC8RbutFNGzpsk" style="display:grid;grid-column:2;position:relative;"> <div id="k8JzVl0FoKscqNyY" style="z-index:1;position:relative;"> <div id="mup3bO47VDuLu8sa" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <svg id="pndiOsbTiVgdmRCE" viewBox="0 0 326.8747 117.622" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="vRbOfzbbbmdDLUco" style="transform:scale(1, 1);"> <path id="nknlVKkEAXiYiP4H" d="M10.00000041,0.0 L316.87469442,0.0 C322.39754214,0.0 326.87469482,4.4771526900000005 326.87469482,10.00000041 L326.87469482,107.62204702 C326.87469482,113.14489474 322.39754214,117.62204742 316.87469442,117.62204742 L10.00000041,117.62204742 C4.4771526900000005,117.62204742 0.0,113.14489474 0.0,107.62204702 L0.0,10.00000041 C0.0,4.47715268 4.4771526900000005,0.0 10.00000041,0.0 Z" style="fill:#e2eef7;opacity:1.0;"></path> </g> </svg> <svg id="sdBVZ1aZzkivNRdW" viewBox="0 0 268.642 97.8804" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="IkLRl2qKU7AaQjPa" style="transform:scale(1, 1);"> <path id="ezCw3GvvMGpuJUu7" d="M8.21850118,0.0 L260.42346659000003,0.0 C262.60314862,0.0 264.69355656,0.86587532 266.23482451,2.4071432600000002 267.77609245,3.94841121 268.64196777,6.03881915 268.64196777,8.21850118 L268.64196777,89.66188517 C268.64196777,91.8415672 267.77609246000003,93.93197514 266.23482451,95.47324309 264.69355656,97.01451103000001 262.60314863,97.88038635000001 260.42346659000003,97.88038635000001 L8.21850118,97.88038635000001 C6.03881915,97.88038635000001 3.94841121,97.01451104 2.40714327,95.47324309 0.86587532,93.93197514 0.0,91.84156721000001 0.0,89.66188517 L0.0,8.21850118 C0.0,6.03881915 0.86587532,3.94841121 2.4071432600000002,2.40714327 3.94841121,0.86587532 6.03881914,0.0 8.21850118,0.0 Z" style="fill:#e2eef7;opacity:1.0;"></path> </g> </svg> <svg id="W9WiUiDpXi0TPgHb" viewBox="0 0 198.0952 80.5197" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="KjFGFPDGFdvwPcEh" style="transform:scale(1, 1);"> <path id="Lk6pmVBuTE9rxS2U" d="M6.06027961,0.0 L192.03496575,0.0 C193.64225183,0.0 195.18370767000002,0.63849191 196.32023056,1.7750148000000001 197.45675345,2.91153769 198.09524536,4.45299352 198.09524536,6.06027961 L198.09524536,74.45946526 C198.09524536,76.06675135 197.45675345,77.60820718000001 196.32023056,78.74473007 195.18370767000002,79.88125296 193.64225184,80.51974487 192.03496575,80.51974487 L6.06027961,80.51974487 C4.4529935300000005,80.51974487 2.91153769,79.88125296 1.7750148000000001,78.74473007 0.63849191,77.60820718000001 0.0,76.06675135 0.0,74.45946526 L0.0,6.06027961 C0.0,4.4529935300000005 0.63849191,2.91153769 1.7750148000000001,1.7750148000000001 2.91153769,0.63849191 4.45299352,0.0 6.06027961,0.0 Z" style="fill:#e2eef7;opacity:1.0;"></path> </g> </svg> <svg id="SdjUlqiZ4UdIxVNG" viewBox="0 0 125.4902 63.9783" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="jLhOOonagnnAKOf0" style="transform:scale(1, 1);"> <path id="AB4reAX6ddiS0YVM" d="M3.8390920200000003,0.0 L121.65110421,0.0 C123.77137619,0.0 125.49019623000001,1.71882005 125.49019623000001,3.8390920200000003 L125.49019623000001,60.13925195 C125.49019622,62.25952392 123.77137618,63.978343960000004 121.65110421,63.978343960000004 L3.8390920200000003,63.978343960000004 C1.71882004,63.978343960000004 0.0,62.25952392 0.0,60.13925195 L0.0,3.8390920200000003 C0.0,1.71882004 1.71882005,0.0 3.8390920200000003,0.0 Z" style="fill:#e2eef7;opacity:1.0;"></path> </g> </svg> <svg id="LcyxZUVVoV8o0syJ" viewBox="0 0 96.5737 56.2707" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="vZww8VODGteBOMin" style="transform:scale(1, 1);"> <path id="VIOY48OdsZ6QV3Cl" d="M2.95445637,0.0 L93.61919781,0.0 C95.250899,0.0 96.57365417,1.32275518 96.57365417,2.95445637 L96.57365417,53.31622311 C96.57365417,54.947924300000004 95.250899,56.270679470000005 93.61919781,56.270679470000005 L2.95445637,56.270679470000005 C1.32275517,56.270679470000005 0.0,54.947924300000004 0.0,53.31622311 L0.0,2.95445637 C0.0,1.32275517 1.32275517,0.0 2.95445637,0.0 Z" style="fill:#e2eef7;opacity:1.0;"></path> </g> </svg> </div> </div> <div id="wIhlRpceZUKFz3oI" style="z-index:2;position:relative;"> <div id="rY3DssQjKDU088pT" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="t7Ovn4UkU4YEEr5v" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;"> <p id="eVPgTnv4EF4NchLu" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;"> <span id="mochg40gpLS1B65J" style="color:#000000;font-weight:700;">&quot;It&#x27;s all about </span> <span id="tQHCBsnX0PqqbUYc" style="color:#1869f7;font-weight:700;">Speed of investigation of large data sets</span> <span id="ExqHEsVkVbomu6AO" style="color:#000000;font-weight:700;"> and how to best visualize.&quot; </span> <br> </p> </div> </div> </div> <div id="HXao1YBiRQicF7Q2" style="z-index:3;position:relative;"> <div id="dtMznzbvC8XklDbL" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="HKochYdti8WrwOu2" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;"> <p id="eP7ULBLLrKUiMGGI" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;"> <span id="NPwTqhKmVQIPYApc" style="color:#000000;">- VP of Data Science</span> <br> </p> </div> </div> </div> <div id="apyi78CgnE94RCjy" style="z-index:4;position:relative;"> <div id="E1UFosxnhDiw3eWw" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="BDSod5uwyJRswswO" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;"> <p id="bezzaXamTKAQ9F36" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;"> <span id="s8Rgg9BzfsB4nHbx" style="color:#000000;font-weight:700;">&quot;Row64 and real-time data are </span> <span id="weG2NlcrUmM3O099" style="color:#1869f7;font-weight:700;">where the industry needs to go</span> <span id="voEcf6FKCnEKj7n7" style="color:#000000;font-weight:700;">. It makes sense.&quot; </span> <br> </p> </div> </div> </div> <div id="CbXb2xo69FeYI2qK" style="z-index:5;position:relative;"> <div id="EjR8ddWsTx8HtVP1" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="STL6qCzEoNmLaeyw" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;"> <p id="CyVxwNpfYifexMww" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;"> - VP, Data Science @ Fortune 50 analytics company </p> </div> </div> </div> </div> </section> <!-- End social proof -->';
+                  var benefitsHTML = ' <!-- Benefits --> <section id="EzCVRfuLtC7hZO0f" style="z-index:0;overflow:hidden;grid-template-columns:auto min(100vw, 1366px) auto;display:grid;margin-top:-1px;position:relative;align-items:center;"> <div id="ZxwwOJFQEJchgRiF" style="background-color:#ffffff;transform:scale(1, 1);overflow:hidden;width:100%;opacity:1.0;height:100%;top:0%;left:0%;position:absolute;"></div> <div id="c2N9NvCpeFbR3wvA" style="display:grid;grid-column:2;position:relative;"> <div id="JXWRDda7mE4tieo5" style="z-index:21;position:relative;"> <div id="IqaGWAfcOClACcuD" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="TV1hvGtLITHGQR0Q" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;"> <p id="WiSyAD1IGnF23yvB" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;text-align:center;"> <span id="urhzDZxbrMuBohuD" style="color:#000000;font-weight:700;">Effortless collaboration, faster processing across teams</span> <br> </p> </div> </div> </div> <div id="MP4r3jgI92mER8xR" style="z-index:1;position:relative;"> <div id="nKxT9VhCEBsEbE8K" style="padding-top:66.62883001%;transform:rotate(0deg);"> <div id="x2UmX9RqUUU9VvOG" style="top:0px;left:0px;width:100%;position:absolute;height:100%;"> <svg id="SFGreULBcUATZ5vU" viewBox="0 0 109.766 73.1358" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="mchWiHSgwrE0pNbk" style="transform:scale(1, 1);"> <path id="v5nPdnUEYNV1eFfB" d="M9.96631241,0.0 L99.79966354,0.0 C105.3039059,0.0 109.76597595,4.46207005 109.76597595,9.96631241 L109.76597595,63.16947555 C109.76597595,68.67371791000001 105.3039059,73.13578796 99.79966354,73.13578796 L9.96631241,73.13578796 C7.32308202,73.13578796 4.7881114600000005,72.08576878 2.91906532,70.21672264 1.05001918,68.3476765 0.0,65.81270594 0.0,63.16947555 L0.0,9.96631241 C0.0,7.32308202 1.05001919,4.7881114600000005 2.91906532,2.91906532 4.7881114600000005,1.05001919 7.32308202,0.0 9.96631241,0.0 Z" style="fill:#e2eef7;opacity:1.0;"></path> </g> </svg> </div> </div> </div> <div id="y3SkcI8M1eOyCgN8" style="z-index:3;position:relative;"> <div id="eJeVLHmgKtKCMIyp" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="hX8hr2y1DhKFl8Wm" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;"> <p id="hYNWYFsNjxdL5K0V" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;"> <span id="nqb7UQjntkUC0sA4" style="color:#000000;font-weight:700;">Save time and get insights faster</span> <br> </p> </div> </div> </div> <div id="yywsCvgTbu4kLsW9" style="z-index:4;position:relative;"> <div id="uRV9SHYHpvWlNAaL" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="Yhspb96pN6kVeKqq" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;"> <p id="YVOrJgdMlCbmf4BH" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;"> <span id="ODq7ncDyadSUoUqz" style="color:#000000;">Better align efforts across data and product teams. Row64 helps you comprehensively assess what&#x27;s going on with your data.</span> <br> </p> </div> </div> </div> <div id="thh3ayHiigRlgZhd" style="z-index:2;position:relative;"> <div id="ptQYApQmUmcZYtAF" style="padding-top:95.46909485%;transform:rotate(0deg);"> <div id="Y0V3JkmMMfEojEra" style="top:0px;left:0px;width:100%;position:absolute;height:100%;"> <svg id="m4W9UtghJNuE3yF6" viewBox="0 0 12.0053 11.4614" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="YN2HfzqlvUAuk8Uh" style="transform:scale(1, 1);"> <path id="sdtLgENLLgQDRWfv" d="M1.9686510400000001,0.0 L10.0366657,0.0 C11.12392164,0.0 12.00531673,0.8813951 12.00531673,1.9686510400000001 L12.00531673,9.49271657 C12.00531673,10.57997252 11.12392164,11.46136761 10.0366657,11.46136761 L1.9686510400000001,11.46136761 C0.88139509,11.46136761 0.0,10.579972510000001 0.0,9.49271657 L0.0,1.9686510400000001 C0.0,0.88139509 0.88139509,0.0 1.9686510400000001,0.0 Z" style="fill:#233dff;opacity:1.0;"></path> </g> </svg> </div> </div> </div> <div id="EwVtx4xNPM6MFDBF" style="z-index:17;position:relative;"> <div id="QIyKX0DR0m8IneKn" style="padding-top:100%;transform:rotate(0deg);"> <div id="VHfdepKcbYrCeuoU" style="top:0px;left:0px;width:100%;position:absolute;height:100%;"> <div id="iqnBSwBQOVnZErCr" style="width:100%;opacity:1.0;height:100%;"> <div id="oqmDeGx2B1lkY6dJ" style="transform:scale(1, 1);overflow:hidden;width:100%;height:100%;"> <div id="iysKhWJ8QBWOu9u0" style="transform:rotate(0deg);top:0%;left:0%;width:100%;position:relative;opacity:1.0;height:100%;animation:anim-pulse 1.5s ease-in-out infinite;"> <img src="https://crowdtamers.my.canva.site/row64/images/14025cbd0418391d5edd2cbf04eecd32.svg" alt="" loading="lazy" style="width:100%;height:100%;"> </div> </div> </div> </div> </div> </div> <div id="ef8WeLDqfqJZoaYH" style="z-index:6;position:relative;"> <div id="h8vGSJf0Nvag4Igj" style="padding-top:66.62883001%;transform:rotate(0deg);"> <div id="A8ADjIo98521ce3i" style="top:0px;left:0px;width:100%;position:absolute;height:100%;"> <svg id="bjyQBKSPsYrqkq62" viewBox="0 0 109.766 73.1358" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="OFSjjs8gLkmIQlwZ" style="transform:scale(1, 1);"> <path id="gyvTVL70uwGgY2kS" d="M9.96631241,0.0 L99.79966354,0.0 C105.3039059,0.0 109.76597595,4.46207005 109.76597595,9.96631241 L109.76597595,63.16947555 C109.76597595,68.67371791000001 105.3039059,73.13578796 99.79966354,73.13578796 L9.96631241,73.13578796 C7.32308202,73.13578796 4.7881114600000005,72.08576878 2.91906532,70.21672264 1.05001918,68.3476765 0.0,65.81270594 0.0,63.16947555 L0.0,9.96631241 C0.0,7.32308202 1.05001919,4.7881114600000005 2.91906532,2.91906532 4.7881114600000005,1.05001919 7.32308202,0.0 9.96631241,0.0 Z" style="fill:#e2eef7;opacity:1.0;"></path> </g> </svg> </div> </div> </div> <div id="wy4we6tc5DT3CvFk" style="z-index:8;position:relative;"> <div id="bIActMvrglc7Am0I" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="RphmsgQJMyOU8kgM" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;"> <p id="ZfQUQRd44ySI6oJl" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;"> <span id="QySqE3zd4SMi8FaI" style="color:#000000;font-weight:700;">Make big data - make sense</span> <br> </p> </div> </div> </div> <div id="JUQ5lQXRIDCgm1hI" style="z-index:9;position:relative;"> <div id="mP9tTKJlccLKP2y9" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="r0R7S5FolXG0SDYa" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;"> <p id="y7JEapxRceh3ixJv" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;"> <span id="suXNOtDP9hafDEER" style="color:#000000;">Process millions of data points in minutes - no long setup time, no more downtime - just lightning - fast data exploration &amp; visualization.</span> <br> </p> </div> </div> </div> <div id="AEa6yPij36cyHE6X" style="z-index:7;position:relative;"> <div id="vrugGB8RHMnxuCiv" style="padding-top:95.46909485%;transform:rotate(0deg);"> <div id="FA1knL8s3A5U3MKi" style="top:0px;left:0px;width:100%;position:absolute;height:100%;"> <svg id="uWpDREfk3GzIDvJT" viewBox="0 0 12.0053 11.4614" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="bGPTBwc2Cshi8HlV" style="transform:scale(1, 1);"> <path id="uSv9PBNn18rUwxvt" d="M1.9686510400000001,0.0 L10.0366657,0.0 C11.12392164,0.0 12.00531673,0.8813951 12.00531673,1.9686510400000001 L12.00531673,9.49271657 C12.00531673,10.57997252 11.12392164,11.46136761 10.0366657,11.46136761 L1.9686510400000001,11.46136761 C0.88139509,11.46136761 0.0,10.579972510000001 0.0,9.49271657 L0.0,1.9686510400000001 C0.0,0.88139509 0.88139509,0.0 1.9686510400000001,0.0 Z" style="fill:#233dff;opacity:1.0;"></path> </g> </svg> </div> </div> </div> <div id="YoWUc2CW0o2WjNzI" style="z-index:18;position:relative;"> <div id="gJLUxpjgLer1St4i" style="padding-top:100%;transform:rotate(0deg);"> <div id="r7cG1kW9U034eePB" style="top:0px;left:0px;width:100%;position:absolute;height:100%;"> <div id="NLt1GGnBdPuze3f3" style="width:100%;opacity:1.0;height:100%;"> <div id="vY9o3UDzDbhfWd9A" style="transform:scale(1, 1);overflow:hidden;width:100%;height:100%;"> <div id="xBtxSpBNIoyQKWHu" style="transform:rotate(0deg);top:0%;left:0%;width:100%;position:relative;opacity:1.0;height:100%;animation:anim-pulse 1.5s ease-in-out infinite;"> <img src="https://crowdtamers.my.canva.site/row64/images/a4564ccd4306e93f72d9c288cde9ed36.svg" alt="" loading="lazy" style="width:100%;height:100%;"> </div> </div> </div> </div> </div> </div> <div id="YakmQ6RDK8n42uKA" style="z-index:10;position:relative;"> <div id="ZLaJ4OW1upBIaISh" style="padding-top:70.41199618%;transform:rotate(0deg);"> <div id="I3jms7ajkUjjT76T" style="top:0px;left:0px;width:100%;position:absolute;height:100%;"> <svg id="jWPpZnKl84QiAWOb" viewBox="0 0 109.766 77.2884" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="gMWS4cSG8ZUMMnja" style="transform:scale(1, 1);"> <path id="D4MA9j4IPUAoKmJU" d="M9.96631241,0.0 L99.79966354,0.0 C105.3039059,0.0 109.76597595,4.46207005 109.76597595,9.96631241 L109.76597595,67.32210159 C109.76597595,69.96533198 108.71595677,72.50030254 106.84691063,74.36934868 104.97786449,76.23839482 102.44289393,77.288414 99.79966354,77.288414 L9.96631241,77.288414 C7.32308202,77.288414 4.7881114600000005,76.23839482 2.91906532,74.36934868 1.05001919,72.50030254 0.0,69.96533198 0.0,67.32210159 L0.0,9.96631241 C0.0,7.32308202 1.05001919,4.7881114600000005 2.91906532,2.91906532 4.7881114600000005,1.05001919 7.32308202,0.0 9.96631241,0.0 Z" style="fill:#e2eef7;opacity:1.0;"></path> </g> </svg> </div> </div> </div> <div id="Ajn5UYFya5Qd3iGA" style="z-index:22;position:relative;"> <div id="YZC5mA5X5ydzYJiC" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="uN4wmZGkFWtZIGOW" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;"> <p id="cXUc4ZIcf5UUBR3F" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;"> <span id="eSYZrwnBMCjJ4gIm" style="color:#000000;font-weight:700;">Data visualization on steroids</span> <br> </p> </div> </div> </div> <div id="uKNZUaOC8W0HqmoS" style="z-index:23;position:relative;"> <div id="Ra7BHt9xatRzrPkv" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="dQ6W7Ihp8ngn6ngW" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;"> <p id="AFfBG2RZHoc5N7nN" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;"> <span id="sP4ntqHaUPCnWR5o" style="color:#000000;">Uncover new information from your data with engaging data viz templates. Bring your data to life and tell better stories that non-data teams can easily understand.</span> <br> </p> </div> </div> </div> <div id="CdLLSxv37sEIxgEf" style="z-index:11;position:relative;"> <div id="vHbeTofncmaKd4QC" style="padding-top:95.46909485%;transform:rotate(0deg);"> <div id="h1EVKBZchrLD2KsO" style="top:0px;left:0px;width:100%;position:absolute;height:100%;"> <svg id="XiUAAu9z2scTNCNi" viewBox="0 0 12.0053 11.4614" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="PyfbY8yAC2jddduh" style="transform:scale(1, 1);"> <path id="Mr6KbbHDFA3HSuS9" d="M1.9686510400000001,0.0 L10.0366657,0.0 C11.12392164,0.0 12.00531673,0.8813951 12.00531673,1.9686510400000001 L12.00531673,9.49271657 C12.00531673,10.57997252 11.12392164,11.46136761 10.0366657,11.46136761 L1.9686510400000001,11.46136761 C0.88139509,11.46136761 0.0,10.579972510000001 0.0,9.49271657 L0.0,1.9686510400000001 C0.0,0.88139509 0.88139509,0.0 1.9686510400000001,0.0 Z" style="fill:#233dff;opacity:1.0;"></path> </g> </svg> </div> </div> </div> <div id="Kht805TDoIUKN1at" style="z-index:19;position:relative;"> <div id="mo7YVtx1Ijt3sDiA" style="padding-top:84.86564885%;transform:rotate(0deg);"> <div id="z9DfSTX76YU4Cqfh" style="top:0px;left:0px;width:100%;position:absolute;height:100%;"> <div id="Vi69mXUijsuV4gGt" style="width:100%;opacity:1.0;height:100%;"> <div id="lqVAPXL0mjkxq0oc" style="transform:scale(1, 1);overflow:hidden;width:100%;height:100%;"> <div id="CbQEPxLrdLGGDaem" style="transform:rotate(0deg);top:0%;left:0%;width:100%;position:relative;opacity:1.0;height:117.83330636%;animation:anim-pulse 1.5s ease-in-out infinite;"> <img src="https://crowdtamers.my.canva.site/row64/images/4b3594b7b2d5e88e8d5077c483d7b036.svg" alt="" loading="lazy" style="width:100%;height:100%;"> </div> </div> </div> </div> </div> </div> <div id="V42iJ0bdBJfLPnEf" style="z-index:12;position:relative;"> <div id="M8qQBcEar4xTKLHq" style="padding-top:70.41199618%;transform:rotate(0deg);"> <div id="Vqpw2KQACHcJywcN" style="top:0px;left:0px;width:100%;position:absolute;height:100%;"> <svg id="YuNIw9WdmDE29vs1" viewBox="0 0 109.766 77.2884" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="Y0FoWB2mpwxqgq44" style="transform:scale(1, 1);"> <path id="d1Ud17lk3O9NqWLp" d="M9.96631241,0.0 L99.79966354,0.0 C105.3039059,0.0 109.76597595,4.46207005 109.76597595,9.96631241 L109.76597595,67.32210159 C109.76597595,69.96533198 108.71595677,72.50030254 106.84691063,74.36934868 104.97786449,76.23839482 102.44289393,77.288414 99.79966354,77.288414 L9.96631241,77.288414 C7.32308202,77.288414 4.7881114600000005,76.23839482 2.91906532,74.36934868 1.05001919,72.50030254 0.0,69.96533198 0.0,67.32210159 L0.0,9.96631241 C0.0,7.32308202 1.05001919,4.7881114600000005 2.91906532,2.91906532 4.7881114600000005,1.05001919 7.32308202,0.0 9.96631241,0.0 Z" style="fill:#e2eef7;opacity:1.0;"></path> </g> </svg> </div> </div> </div> <div id="DzcJGOiuY7JWuvOl" style="z-index:24;position:relative;"> <div id="t4RBZo3hB2uClW85" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="XYAc1QCCVDU8DeCu" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;"> <p id="WB5MOYZNulWMO21F" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;"> <span id="OBPfFqKEfJ6lyflx" style="color:#000000;font-weight:700;">Build custom workflows for the team</span> <br> </p> </div> </div> </div> <div id="gQj0T1ESfbnd86kM" style="z-index:25;position:relative;"> <div id="bn0HnHlenewKOJWj" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="YaiFlSm0jOueyT0V" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;"> <p id="xcomOMW0QFzUpbHa" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;"> <span id="MJCW9xlj1JSecQgh" style="color:#000000;">With the recipe universe, access over 300 pre-installed Python data recipes or create and share your own custom recipes to speed up team collaboration around data.</span> <br> </p> </div> </div> </div> <div id="gx0rOYN4eBOc5wHJ" style="z-index:13;position:relative;"> <div id="nEQZmfhGRng1fB8j" style="padding-top:95.46909485%;transform:rotate(0deg);"> <div id="hN0qC8LSkExlJdwL" style="top:0px;left:0px;width:100%;position:absolute;height:100%;"> <svg id="AObl1pF0VMxxJMdF" viewBox="0 0 12.0053 11.4614" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="akhT103ptMVdq7r6" style="transform:scale(1, 1);"> <path id="gurksta4kVjVsGa5" d="M1.9686510400000001,0.0 L10.0366657,0.0 C11.12392164,0.0 12.00531673,0.8813951 12.00531673,1.9686510400000001 L12.00531673,9.49271657 C12.00531673,10.57997252 11.12392164,11.46136761 10.0366657,11.46136761 L1.9686510400000001,11.46136761 C0.88139509,11.46136761 0.0,10.579972510000001 0.0,9.49271657 L0.0,1.9686510400000001 C0.0,0.88139509 0.88139509,0.0 1.9686510400000001,0.0 Z" style="fill:#233dff;opacity:1.0;"></path> </g> </svg> </div> </div> </div> <div id="QFLRa9iCiQDdnDfh" style="z-index:20;position:relative;"> <div id="vuAoRuQv9kz8oI7Z" style="padding-top:100%;transform:rotate(0deg);"> <div id="QV5RnYthoh2J3j65" style="top:0px;left:0px;width:100%;position:absolute;height:100%;"> <div id="P0WZZnq7863g8Zzu" style="width:100%;opacity:1.0;height:100%;"> <div id="w1dr9qTmKzRW75N5" style="transform:scale(1, 1);overflow:hidden;width:100%;height:100%;"> <div id="bGw0Xrp794HhBRBK" style="transform:rotate(0deg);top:0%;left:0%;width:100%;position:relative;opacity:1.0;height:100%;animation:anim-pulse 1.5s ease-in-out infinite;"> <img src="https://crowdtamers.my.canva.site/row64/images/a4882dfb7da6d7946abaa6fc2daa0f71.svg" alt="" loading="lazy" style="width:100%;height:100%;"> </div> </div> </div> </div> </div> </div> <div id="jn374LOrNVy80VrY" style="z-index:15;position:relative;"> <div id="KlPhhpOAFdJV3oP7" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <svg id="ng8gL2GQbl0ZMd6g" viewBox="0 0 41.8073 9.5029" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="iSlvc0nip6IXB0KE" style="transform:scale(1, 1);"> <path id="VuRgywcnPnDc6FB5" d="M2.00346443,0.0 L39.803794180000004,0.0 C40.91027703,0.0 41.80725861,0.8969815800000001 41.80725861,2.00346443 L41.80725861,7.49945668 C41.807258600000004,8.60593953 40.91027703,9.5029211 39.803794180000004,9.5029211 L2.00346443,9.5029211 C0.8969815800000001,9.5029211 0.0,8.60593953 0.0,7.49945668 L0.0,2.00346443 C0.0,0.8969815800000001 0.8969815800000001,0.0 2.00346443,0.0 Z" style="fill:#233dff;opacity:1.0;"></path> </g> </svg> </div> </div> <div id="IonuzXboelMf3U3m" style="z-index:16;position:relative;"> <div id="DdllvrWtdfSL8jfT" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="WuJ6WLnbc8gZWn4t" style="flex-direction:column;display:flex;width:100%;justify-content:center;opacity:1.0;height:100%;"> <p id="Ce9zqZk7vU7YbldP" style="text-transform:none;color:#ffffff;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;text-align:center;"><a id="nwBr0670PG54VOTV"  onclick="ctaClick();" target="_blank" rel="noopener" href="https://row64.com/Download/?utm_source=lp&utm_campaign=ER2_LP&utm_id=collaborate&utm_content=LP_signup_top" style="text-decoration-line:underline;color:#ffffff;font-weight:700;pointer-events:all;">START HERE</a> <br> </p> </div> </div> </div> </div> </section> <!-- end Benefits -->';
+                  var redefineHTML = '<!-- Redefine --> <section id="ZW1um1FEt3LL57cI" style="z-index:0;overflow:hidden;grid-template-columns:auto min(100vw, 1366px) auto;display:grid;margin-top:-1px;position:relative;align-items:center;"> <div id="jcvg6LdmdgBwzjvY" style="background-color:#ffffff;transform:scale(1, 1);overflow:hidden;width:100%;opacity:1.0;height:100%;top:0%;left:0%;position:absolute;"></div> <div id="Dwyf9UU76LB20S1S" style="display:grid;grid-column:2;position:relative;"> <div id="tMgrbq8kXbAPSMOj" style="z-index:6;position:relative;"> <div id="Y87vpimxSHaX3n7r" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="uwG3k19l61dr5S4x" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;"> <p id="jRisaO0FC7jPJFYH" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;text-align:center;"> <span id="nr0DT1p6AEZQe8fR" style="color:#000000;font-weight:700;">Redefine collaboration across data teams with Row64</span> <br> </p> </div> </div> </div> <div id="IT3RHFmyXAMudn29" style="z-index:1;position:relative;"> <div id="GKrIMVRBbvCzOe7F" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <svg id="JyiwiajOMy74f9lw" viewBox="0 0 193.9169 12.1021" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="V2yenahvH7WeUonN" style="transform:scale(1, 1);"> <path id="OuZrBsgnQAmKwiql" d="M1.97530882,0.0 L191.94157656000002,0.0 C193.0325095,0.0 193.91688538,0.88437588 193.91688538,1.97530882 L193.91688538,10.12674864 C193.91688538,11.21768158 193.0325095,12.102057460000001 191.94157656000002,12.102057460000001 L1.97530882,12.102057460000001 C0.88437588,12.10205745 0.0,11.21768157 0.0,10.12674864 L0.0,1.97530882 C0.0,0.88437588 0.88437588,0.0 1.97530882,0.0 Z" style="fill:#27bff7;opacity:1.0;"></path> </g> </svg> <svg id="V81wvUqOzOcPhdx4" viewBox="0 0 159.1952 24.0956" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="R06MAQCxvVOpdMyC" style="transform:scale(1, 1);"> <path id="h2dgnGrzrI2DsIYp" d="M1.62162082,0.0 L157.57363065,0.0 C158.46922709,0.0 159.19525146,0.72602437 159.19525146,1.62162082 L159.19525146,22.4739507 C159.19525146,23.36954715 158.4692271,24.09557152 157.57363065,24.09557152 L1.62162082,24.09557152 C0.72602437,24.09557152 0.0,23.36954715 0.0,22.4739507 L0.0,1.62162082 C0.0,0.72602437 0.72602437,0.0 1.62162082,0.0 Z" style="fill:#27bff7;opacity:1.0;"></path> </g> </svg> <svg id="EpyT6ricOjTBwBFp" viewBox="0 0 117.3898 21.9379" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="katkbFDkd30K8Xlf" style="transform:scale(1, 1);"> <path id="DS9C8oFJuAhyVy8V" d="M1.19577565,0.0 L116.19399486,0.0 C116.51113428000001,0.0 116.8152845,0.12598314 117.03953593,0.35023458 117.26378737,0.57448601 117.38977051,0.87863623 117.38977051,1.19577565 L117.38977051,20.74211917 C117.38977051,21.40252783 116.85440351,21.93789482 116.19399486,21.93789482 L1.19577565,21.93789482 C0.53536699,21.93789482 0.0,21.40252783 0.0,20.74211917 L0.0,1.19577565 C0.0,0.53536699 0.53536699,0.0 1.19577565,0.0 Z" style="fill:#27bff7;opacity:1.0;"></path> </g> </svg> <svg id="jKjyUpgd0gjjbuVH" viewBox="0 0 74.3646 18.6736" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="zE8lJzSvDxZIATjC" style="transform:scale(1, 1);"> <path id="bSPcbXHPOb3VUm5C" d="M0.75750515,0.0 L73.60705784,0.0 C74.02541638,0.0 74.36456299,0.33914661 74.36456299,0.75750515 L74.36456299,17.9160941 C74.36456299,18.33445263 74.02541638,18.67359924 73.60705784,18.67359924 L0.75750515,18.67359924 C0.33914661,18.67359924 0.0,18.334452640000002 0.0,17.9160941 L0.0,0.75750515 C0.0,0.33914661 0.33914661,0.0 0.75750515,0.0 Z" style="fill:#27bff7;opacity:1.0;"></path> </g> </svg> <svg id="sB8ycJcEls0ZUDE9" viewBox="0 0 57.2288 17.5479" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="XS7CaZlvAglCfc7c" style="transform:scale(1, 1);"> <path id="ORE7s1MUMHjhznCc" d="M0.58295359,0.0 L56.64587865,0.0 C56.96783503,0.0 57.22883224,0.26099721 57.22883224,0.58295359 L57.22883224,16.964928490000002 C57.22883225,17.1195374 57.1674141,17.267813920000002 57.05808909,17.37713893 56.948764080000004,17.48646393 56.80048756,17.54788208 56.64587865,17.54788208 L0.58295359,17.54788208 C0.42834469000000003,17.54788208 0.28006816,17.48646393 0.17074315,17.37713893 0.061418150000000005,17.267813920000002 0.0,17.1195374 0.0,16.964928490000002 L0.0,0.58295359 C0.0,0.42834469000000003 0.061418150000000005,0.28006816 0.17074315,0.17074315 0.28006816,0.061418150000000005 0.42834468000000003,0.0 0.58295359,0.0 Z" style="fill:#27bff7;opacity:1.0;"></path> </g> </svg> </div> </div> <div id="Cmtdh9Srq6C1yzRX" style="z-index:8;position:relative;"> <div id="xnnMZMfaobSzK3dV" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="aJYJ66uH7IxdYtFT" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;"> <p id="XNz4LZQ7EEqNm8qf" style="text-transform:none;color:#ffffff;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;"> <span id="w1XvHgwFYGXsVgPq" style="color:#ffffff;font-weight:700;">Create a Row64 account</span> <br> </p> </div> </div> </div> <div id="VCeREoh9sSO47b7W" style="z-index:4;position:relative;"> <div id="NZGPxfAbsdbAtFsw" style="padding-top:80.51073306%;transform:rotate(0deg);"> <div id="qnwijwOUAP8NXaaR" style="top:0px;left:0px;width:100%;position:absolute;height:100%;"> <div id="zyV54u1XqVRc2DFr" style="width:100%;opacity:1.0;height:100%;"> <div id="RPfl7wyXyY4wjTxI" style="transform:scale(1, 1);overflow:hidden;width:100%;height:100%;"> <div id="J9oGljN90q2BVtYK" style="transform:rotate(0deg);top:0%;left:0%;width:100%;position:relative;opacity:1.0;height:124.20704197%;animation:anim-pulse 1.5s ease-in-out infinite;"> <img src="https://crowdtamers.my.canva.site/row64/images/0c7c0b56f4ef635f6738f49aaa2fb182.svg" alt="" loading="lazy" style="width:100%;height:100%;"> </div> </div> </div> </div> </div> </div> <div id="sMZKEH4YwQcYlJkI" style="z-index:0;position:relative;"> <div id="ernnPUylZ6Z3opwi" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <svg id="hPSKwrX5VsoCqySA" viewBox="0 0 193.9169 12.1021" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="bWicbOyylIPqlDn0" style="transform:scale(1, 1);"> <path id="MIOhINMMhPcQKDaY" d="M1.97530882,0.0 L191.94157656000002,0.0 C193.0325095,0.0 193.91688538,0.88437588 193.91688538,1.97530882 L193.91688538,10.12674864 C193.91688538,11.21768158 193.0325095,12.102057460000001 191.94157656000002,12.102057460000001 L1.97530882,12.102057460000001 C0.88437588,12.10205745 0.0,11.21768157 0.0,10.12674864 L0.0,1.97530882 C0.0,0.88437588 0.88437588,0.0 1.97530882,0.0 Z" style="fill:#27bff7;opacity:1.0;"></path> </g> </svg> <svg id="AVpRHdoB3SaEWuoh" viewBox="0 0 159.1952 22.8746" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="IxZP9tOPhEy0cXt5" style="transform:scale(1, 1);"> <path id="aPQKi8m6zDzAfLif" d="M1.62162082,0.0 L157.57363065,0.0 C158.46922709,0.0 159.19525146,0.72602437 159.19525146,1.62162082 L159.19525146,21.25294812 C159.19525146,22.148544570000002 158.4692271,22.87456894 157.57363065,22.87456894 L1.62162082,22.87456894 C0.72602437,22.87456894 0.0,22.148544570000002 0.0,21.25294812 L0.0,1.62162082 C0.0,0.72602437 0.72602437,0.0 1.62162082,0.0 Z" style="fill:#27bff7;opacity:1.0;"></path> </g> </svg> <svg id="pMK1vbllD1O2znS4" viewBox="0 0 117.3898 20.7605" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="cEW8tvv2ztKxbuj6" style="transform:scale(1, 1);"> <path id="DgrWDI38AluYASNp" d="M1.19577565,0.0 L116.19399486,0.0 C116.51113428000001,0.0 116.8152845,0.12598314 117.03953593,0.35023458 117.26378737,0.57448601 117.38977051,0.87863623 117.38977051,1.19577565 L117.38977051,19.5647224 C117.38977051,20.22513105 116.85440352,20.76049805 116.19399486,20.76049805 L1.19577565,20.76049805 C0.53536699,20.76049805 0.0,20.22513105 0.0,19.5647224 L0.0,1.19577565 C0.0,0.53536699 0.53536699,0.0 1.19577565,0.0 Z" style="fill:#27bff7;opacity:1.0;"></path> </g> </svg> <svg id="pFo5XLI9usCreYx9" viewBox="0 0 74.3646 17.4616" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="HxKnGKiuDadV3rzc" style="transform:scale(1, 1);"> <path id="HG5t48vmYtb3W26D" d="M0.75750515,0.0 L73.60705784,0.0 C74.02541638,0.0 74.36456299,0.33914661 74.36456299,0.75750515 L74.36456299,16.70406941 C74.36456298,17.12242795 74.02541638,17.46157455 73.60705784,17.46157455 L0.75750515,17.46157455 C0.33914661,17.46157455 0.0,17.12242795 0.0,16.70406941 L0.0,0.75750515 C0.0,0.33914661 0.33914661,0.0 0.75750515,0.0 Z" style="fill:#27bff7;opacity:1.0;"></path> </g> </svg> <svg id="CxuG406s6BZmEjGd" viewBox="0 0 57.2288 16.3745" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="msFgJerrhak7oeEE" style="transform:scale(1, 1);"> <path id="cdafC7RrHnMn94cO" d="M0.58295359,0.0 L56.64587865,0.0 C56.96783503,0.0 57.22883224,0.26099721 57.22883224,0.58295359 L57.22883224,15.79155431 C57.22883224,15.94616322 57.16741409,16.09443975 57.05808909,16.20376475 56.948764080000004,16.31308975 56.80048756,16.3745079 56.64587865,16.3745079 L0.58295359,16.3745079 C0.42834469000000003,16.3745079 0.28006816,16.31308976 0.17074315,16.20376475 0.061418150000000005,16.094439740000002 0.0,15.94616322 0.0,15.79155431 L0.0,0.58295359 C0.0,0.42834469000000003 0.061418150000000005,0.28006816 0.17074315,0.17074315 0.28006816,0.061418150000000005 0.42834468000000003,0.0 0.58295359,0.0 Z" style="fill:#27bff7;opacity:1.0;"></path> </g> </svg> </div> </div> <div id="Omc64znNC0Sj09F2" style="z-index:7;position:relative;"> <div id="ihXSPzt32h26L6V6" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="Kf81psXq4kvbpaFV" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;"> <p id="K0d3tco3c1cKivDL" style="text-transform:none;color:#ffffff;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;"> <span id="ZxEPEo2R7Xrv5sUQ" style="color:#ffffff;font-weight:700;">Download the app &amp; install on your machine</span> <br> </p> </div> </div> </div> <div id="pzzQo513EElFBj5o" style="z-index:3;position:relative;"> <div id="DrlctwlylTQIV1Qc" style="padding-top:79.34250876%;transform:rotate(0deg);"> <div id="DL02615hfmOz84CQ" style="top:0px;left:0px;width:100%;position:absolute;height:100%;"> <div id="K9BgYhkBfDXo6AZV" style="width:100%;opacity:1.0;height:100%;"> <div id="vUO7nH3sBFO57NRr" style="transform:scale(1, 1);overflow:hidden;width:100%;height:100%;"> <div id="AgLg4ZdQkPa8C3I1" style="transform:rotate(0deg);top:0%;left:0%;width:100%;position:relative;opacity:1.0;height:126.03584328%;animation:anim-pulse 1.5s ease-in-out infinite;"> <img src="https://crowdtamers.my.canva.site/row64/images/eaa3e99cfa2a4043dd0403827dd6a726.svg" alt="" loading="lazy" style="width:100%;height:100%;"> </div> </div> </div> </div> </div> </div> <div id="cw2piUETIidWrXcn" style="z-index:2;position:relative;"> <div id="kODtXw8ZqwlHjLSp" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <svg id="hE4Eblsr0AgCnaLs" viewBox="0 0 193.9169 12.1021" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="wl5kvsudmAB0pPz4" style="transform:scale(1, 1);"> <path id="vJqU5MMLufftlWGC" d="M1.97530882,0.0 L191.94157656000002,0.0 C193.0325095,0.0 193.91688538,0.88437588 193.91688538,1.97530882 L193.91688538,10.12674864 C193.91688538,11.21768158 193.0325095,12.102057460000001 191.94157656000002,12.102057460000001 L1.97530882,12.102057460000001 C0.88437588,12.10205745 0.0,11.21768157 0.0,10.12674864 L0.0,1.97530882 C0.0,0.88437588 0.88437588,0.0 1.97530882,0.0 Z" style="fill:#27bff7;opacity:1.0;"></path> </g> </svg> <svg id="Vg5UZyll4NLpNmNG" viewBox="0 0 159.1952 25.3506" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="MI6XPpt7MrTQUhnX" style="transform:scale(1, 1);"> <path id="mdjyPmU3ZfJFITq2" d="M1.62162082,0.0 L157.57363065,0.0 C158.46922709,0.0 159.19525146,0.72602437 159.19525146,1.62162082 L159.19525146,23.72898038 C159.19525147000002,24.62457683 158.4692271,25.3506012 157.57363065,25.3506012 L1.62162082,25.3506012 C0.72602437,25.3506012 0.0,24.62457683 0.0,23.72898038 L0.0,1.62162082 C0.0,0.72602437 0.72602437,0.0 1.62162082,0.0 Z" style="fill:#27bff7;opacity:1.0;"></path> </g> </svg> <svg id="rYPky2JKFMf19M3r" viewBox="0 0 117.3898 23.1481" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="XDiS8fTnCJspl1f8" style="transform:scale(1, 1);"> <path id="SA9yHi6mSMtNJimg" d="M1.19577565,0.0 L116.19399486,0.0 C116.51113428000001,0.0 116.8152845,0.12598314 117.03953593,0.35023458 117.26378737,0.57448601 117.38977051,0.87863623 117.38977051,1.19577565 L117.38977051,21.952326160000002 C117.38977051,22.61273481 116.85440352,23.14810181 116.19399486,23.14810181 L1.19577565,23.14810181 C0.53536699,23.14810181 0.0,22.61273481 0.0,21.952326160000002 L0.0,1.19577565 C0.0,0.53536699 0.53536699,0.0 1.19577565,0.0 Z" style="fill:#27bff7;opacity:1.0;"></path> </g> </svg> <svg id="fMLCSXAJGIYuQKZT" viewBox="0 0 74.3646 19.9194" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="YHnmoWLW65CkxzD0" style="transform:scale(1, 1);"> <path id="UR4mEY7NuVTlwatp" d="M0.75750515,0.0 L73.60705784,0.0 C74.02541638,0.0 74.36456299,0.33914661 74.36456299,0.75750515 L74.36456299,19.16189602 C74.36456299,19.58025456 74.02541638,19.91940117 73.60705784,19.91940117 L0.75750515,19.91940117 C0.33914661,19.91940117 0.0,19.58025456 0.0,19.16189602 L0.0,0.75750515 C0.0,0.33914661 0.33914661,0.0 0.75750515,0.0 Z" style="fill:#27bff7;opacity:1.0;"></path> </g> </svg> <svg id="xhsorHpn5rYpku69" viewBox="0 0 57.2288 18.754" preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;"> <g id="xDmFIf3M5Zo40cGD" style="transform:scale(1, 1);"> <path id="fZ7tVfzUYx6jmXLH" d="M0.58295359,0.0 L56.64587865,0.0 C56.96783503,0.0 57.22883224,0.26099721 57.22883224,0.58295359 L57.22883224,18.17100034 C57.22883224,18.32560925 57.16741409,18.47388577 57.05808909,18.58321078 56.948764080000004,18.69253578 56.80048756,18.75395393 56.64587865,18.75395393 L0.58295359,18.75395393 C0.42834469000000003,18.75395393 0.28006816,18.69253579 0.17074315,18.58321078 0.061418150000000005,18.47388577 0.0,18.32560925 0.0,18.17100034 L0.0,0.58295359 C0.0,0.42834469000000003 0.061418150000000005,0.28006816 0.17074315,0.17074315 0.28006816,0.061418150000000005 0.42834468000000003,0.0 0.58295359,0.0 Z" style="fill:#27bff7;opacity:1.0;"></path> </g> </svg> </div> </div> <div id="tZs0blC6T4PD8XsT" style="z-index:9;position:relative;"> <div id="pzzFR40uQDUoHome" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;"> <div id="r7B43PE5RP6BqujJ" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;"> <p id="KNgW6zRkwZWYEPGD" style="text-transform:none;color:#ffffff;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;"> <span id="qNrEMCh5SvSKUR1A" style="color:#ffffff;font-weight:700;">Use one of our 300+ templates or build a custom one</span> <br> </p> </div> </div> </div> <div id="UqsQCTebSAZ9np8e" style="z-index:5;position:relative;"> <div id="Bb9fd5ML3k94A0H5" style="padding-top:79.34250876%;transform:rotate(0deg);"> <div id="eFtzyaWCLWq1FiFD" style="top:0px;left:0px;width:100%;position:absolute;height:100%;"> <div id="mnUimRTWpROZozwf" style="width:100%;opacity:1.0;height:100%;"> <div id="hxWwaJ3LoVuWeObS" style="transform:scale(1, 1);overflow:hidden;width:100%;height:100%;"> <div id="Ejg1EgluwVx7U7it" style="transform:rotate(0deg);top:0%;left:0%;width:100%;position:relative;opacity:1.0;height:126.03584328%;animation:anim-pulse 1.5s ease-in-out infinite;"> <img src="https://crowdtamers.my.canva.site/row64/images/ed94b07c3c2f277677d7ca890fd42e29.svg" alt="" loading="lazy" style="width:100%;height:100%;"> </div> </div> </div> </div> </div> </div> </div> </section> <!-- end Redefine -->';
 
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                    </div>
-               </section>
-               <section id="EzCVRfuLtC7hZO0f" style="z-index:0;overflow:hidden;grid-template-columns:auto min(100vw, 1366px) auto;display:grid;margin-top:-1px;position:relative;align-items:center;">
-                    <div id="ZxwwOJFQEJchgRiF" style="background-color:#ffffff;transform:scale(1, 1);overflow:hidden;width:100%;opacity:1.0;height:100%;top:0%;left:0%;position:absolute;"></div>
-                    <div id="c2N9NvCpeFbR3wvA" style="display:grid;grid-column:2;position:relative;">
-                         <div id="JXWRDda7mE4tieo5" style="z-index:21;position:relative;">
-                              <div id="IqaGWAfcOClACcuD" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="TV1hvGtLITHGQR0Q" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="WiSyAD1IGnF23yvB" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;text-align:center;">
-                                             <span id="urhzDZxbrMuBohuD" style="color:#000000;font-weight:700;">Effortless collaboration, faster processing
-                                                  across teams</span>
-                                             <br>
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="MP4r3jgI92mER8xR" style="z-index:1;position:relative;">
-                              <div id="nKxT9VhCEBsEbE8K" style="padding-top:66.62883001%;transform:rotate(0deg);">
-                                   <div id="x2UmX9RqUUU9VvOG" style="top:0px;left:0px;width:100%;position:absolute;height:100%;">
-                                        <svg id="SFGreULBcUATZ5vU" viewBox="0 0 109.766 73.1358"
-                                        style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                             <g id="mchWiHSgwrE0pNbk" style="transform:scale(1, 1);">
-                                                  <path id="v5nPdnUEYNV1eFfB" d="M9.96631241,0.0 L99.79966354,0.0 C105.3039059,0.0 109.76597595,4.46207005 109.76597595,9.96631241 L109.76597595,63.16947555 C109.76597595,68.67371791000001 105.3039059,73.13578796 99.79966354,73.13578796 L9.96631241,73.13578796 C7.32308202,73.13578796 4.7881114600000005,72.08576878 2.91906532,70.21672264 1.05001918,68.3476765 0.0,65.81270594 0.0,63.16947555 L0.0,9.96631241 C0.0,7.32308202 1.05001919,4.7881114600000005 2.91906532,2.91906532 4.7881114600000005,1.05001919 7.32308202,0.0 9.96631241,0.0 Z"
-                                                  style="fill:#e2eef7;opacity:1.0;"></path>
-                                             </g>
-                                        </svg>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="y3SkcI8M1eOyCgN8" style="z-index:3;position:relative;">
-                              <div id="eJeVLHmgKtKCMIyp" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="hX8hr2y1DhKFl8Wm" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="hYNWYFsNjxdL5K0V" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;">
-                                             <span id="nqb7UQjntkUC0sA4" style="color:#000000;font-weight:700;">Save time and get insights faster</span>
-                                             <br>
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="yywsCvgTbu4kLsW9" style="z-index:4;position:relative;">
-                              <div id="uRV9SHYHpvWlNAaL" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="Yhspb96pN6kVeKqq" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="YVOrJgdMlCbmf4BH" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;">
-                                             <span id="ODq7ncDyadSUoUqz" style="color:#000000;">Better align efforts across data and
-                                                  product teams. Row64 helps you
-                                                  comprehensively assess what&#x27;s
-                                                  going on with your data.</span>
-                                             <br>
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="thh3ayHiigRlgZhd" style="z-index:2;position:relative;">
-                              <div id="ptQYApQmUmcZYtAF" style="padding-top:95.46909485%;transform:rotate(0deg);">
-                                   <div id="Y0V3JkmMMfEojEra" style="top:0px;left:0px;width:100%;position:absolute;height:100%;">
-                                        <svg id="m4W9UtghJNuE3yF6" viewBox="0 0 12.0053 11.4614"
-                                        style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                             <g id="YN2HfzqlvUAuk8Uh" style="transform:scale(1, 1);">
-                                                  <path id="sdtLgENLLgQDRWfv" d="M1.9686510400000001,0.0 L10.0366657,0.0 C11.12392164,0.0 12.00531673,0.8813951 12.00531673,1.9686510400000001 L12.00531673,9.49271657 C12.00531673,10.57997252 11.12392164,11.46136761 10.0366657,11.46136761 L1.9686510400000001,11.46136761 C0.88139509,11.46136761 0.0,10.579972510000001 0.0,9.49271657 L0.0,1.9686510400000001 C0.0,0.88139509 0.88139509,0.0 1.9686510400000001,0.0 Z"
-                                                  style="fill:#233dff;opacity:1.0;"></path>
-                                             </g>
-                                        </svg>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="EwVtx4xNPM6MFDBF" style="z-index:17;position:relative;">
-                              <div id="QIyKX0DR0m8IneKn" style="padding-top:100%;transform:rotate(0deg);">
-                                   <div id="VHfdepKcbYrCeuoU" style="top:0px;left:0px;width:100%;position:absolute;height:100%;">
-                                        <div id="iqnBSwBQOVnZErCr" style="width:100%;opacity:1.0;height:100%;">
-                                             <div id="oqmDeGx2B1lkY6dJ" style="transform:scale(1, 1);overflow:hidden;width:100%;height:100%;">
-                                                  <div id="iysKhWJ8QBWOu9u0" style="transform:rotate(0deg);top:0%;left:0%;width:100%;position:relative;opacity:1.0;height:100%;animation:anim-pulse 1.5s ease-in-out infinite;">
-                                                       <img src="https://crowdtamers.my.canva.site/row64/images/14025cbd0418391d5edd2cbf04eecd32.svg"
-                                                       alt="" loading="lazy" style="width:100%;height:100%;">
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="ef8WeLDqfqJZoaYH" style="z-index:6;position:relative;">
-                              <div id="h8vGSJf0Nvag4Igj" style="padding-top:66.62883001%;transform:rotate(0deg);">
-                                   <div id="A8ADjIo98521ce3i" style="top:0px;left:0px;width:100%;position:absolute;height:100%;">
-                                        <svg id="bjyQBKSPsYrqkq62" viewBox="0 0 109.766 73.1358"
-                                        style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                             <g id="OFSjjs8gLkmIQlwZ" style="transform:scale(1, 1);">
-                                                  <path id="gyvTVL70uwGgY2kS" d="M9.96631241,0.0 L99.79966354,0.0 C105.3039059,0.0 109.76597595,4.46207005 109.76597595,9.96631241 L109.76597595,63.16947555 C109.76597595,68.67371791000001 105.3039059,73.13578796 99.79966354,73.13578796 L9.96631241,73.13578796 C7.32308202,73.13578796 4.7881114600000005,72.08576878 2.91906532,70.21672264 1.05001918,68.3476765 0.0,65.81270594 0.0,63.16947555 L0.0,9.96631241 C0.0,7.32308202 1.05001919,4.7881114600000005 2.91906532,2.91906532 4.7881114600000005,1.05001919 7.32308202,0.0 9.96631241,0.0 Z"
-                                                  style="fill:#e2eef7;opacity:1.0;"></path>
-                                             </g>
-                                        </svg>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="wy4we6tc5DT3CvFk" style="z-index:8;position:relative;">
-                              <div id="bIActMvrglc7Am0I" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="RphmsgQJMyOU8kgM" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="ZfQUQRd44ySI6oJl" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;">
-                                             <span id="QySqE3zd4SMi8FaI" style="color:#000000;font-weight:700;">Make big data - make sense</span>
-                                             <br>
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="JUQ5lQXRIDCgm1hI" style="z-index:9;position:relative;">
-                              <div id="mP9tTKJlccLKP2y9" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="r0R7S5FolXG0SDYa" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="y7JEapxRceh3ixJv" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;">
-                                             <span id="suXNOtDP9hafDEER" style="color:#000000;">Process millions of data points in
-                                                  minutes - no long setup time,
-                                                  no more downtime - just lightning
-                                                  - fast data exploration &amp;
-                                                  visualization.</span>
-                                             <br>
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="AEa6yPij36cyHE6X" style="z-index:7;position:relative;">
-                              <div id="vrugGB8RHMnxuCiv" style="padding-top:95.46909485%;transform:rotate(0deg);">
-                                   <div id="FA1knL8s3A5U3MKi" style="top:0px;left:0px;width:100%;position:absolute;height:100%;">
-                                        <svg id="uWpDREfk3GzIDvJT" viewBox="0 0 12.0053 11.4614"
-                                        style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                             <g id="bGPTBwc2Cshi8HlV" style="transform:scale(1, 1);">
-                                                  <path id="uSv9PBNn18rUwxvt" d="M1.9686510400000001,0.0 L10.0366657,0.0 C11.12392164,0.0 12.00531673,0.8813951 12.00531673,1.9686510400000001 L12.00531673,9.49271657 C12.00531673,10.57997252 11.12392164,11.46136761 10.0366657,11.46136761 L1.9686510400000001,11.46136761 C0.88139509,11.46136761 0.0,10.579972510000001 0.0,9.49271657 L0.0,1.9686510400000001 C0.0,0.88139509 0.88139509,0.0 1.9686510400000001,0.0 Z"
-                                                  style="fill:#233dff;opacity:1.0;"></path>
-                                             </g>
-                                        </svg>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="YoWUc2CW0o2WjNzI" style="z-index:18;position:relative;">
-                              <div id="gJLUxpjgLer1St4i" style="padding-top:100%;transform:rotate(0deg);">
-                                   <div id="r7cG1kW9U034eePB" style="top:0px;left:0px;width:100%;position:absolute;height:100%;">
-                                        <div id="NLt1GGnBdPuze3f3" style="width:100%;opacity:1.0;height:100%;">
-                                             <div id="vY9o3UDzDbhfWd9A" style="transform:scale(1, 1);overflow:hidden;width:100%;height:100%;">
-                                                  <div id="xBtxSpBNIoyQKWHu" style="transform:rotate(0deg);top:0%;left:0%;width:100%;position:relative;opacity:1.0;height:100%;animation:anim-pulse 1.5s ease-in-out infinite;">
-                                                       <img src="https://crowdtamers.my.canva.site/row64/images/a4564ccd4306e93f72d9c288cde9ed36.svg"
-                                                       alt="" loading="lazy" style="width:100%;height:100%;">
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="YakmQ6RDK8n42uKA" style="z-index:10;position:relative;">
-                              <div id="ZLaJ4OW1upBIaISh" style="padding-top:70.41199618%;transform:rotate(0deg);">
-                                   <div id="I3jms7ajkUjjT76T" style="top:0px;left:0px;width:100%;position:absolute;height:100%;">
-                                        <svg id="jWPpZnKl84QiAWOb" viewBox="0 0 109.766 77.2884"
-                                        style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                             <g id="gMWS4cSG8ZUMMnja" style="transform:scale(1, 1);">
-                                                  <path id="D4MA9j4IPUAoKmJU" d="M9.96631241,0.0 L99.79966354,0.0 C105.3039059,0.0 109.76597595,4.46207005 109.76597595,9.96631241 L109.76597595,67.32210159 C109.76597595,69.96533198 108.71595677,72.50030254 106.84691063,74.36934868 104.97786449,76.23839482 102.44289393,77.288414 99.79966354,77.288414 L9.96631241,77.288414 C7.32308202,77.288414 4.7881114600000005,76.23839482 2.91906532,74.36934868 1.05001919,72.50030254 0.0,69.96533198 0.0,67.32210159 L0.0,9.96631241 C0.0,7.32308202 1.05001919,4.7881114600000005 2.91906532,2.91906532 4.7881114600000005,1.05001919 7.32308202,0.0 9.96631241,0.0 Z"
-                                                  style="fill:#e2eef7;opacity:1.0;"></path>
-                                             </g>
-                                        </svg>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="Ajn5UYFya5Qd3iGA" style="z-index:22;position:relative;">
-                              <div id="YZC5mA5X5ydzYJiC" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="uN4wmZGkFWtZIGOW" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="cXUc4ZIcf5UUBR3F" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;">
-                                             <span id="eSYZrwnBMCjJ4gIm" style="color:#000000;font-weight:700;">Data visualization on steroids</span>
-                                             <br>
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="uKNZUaOC8W0HqmoS" style="z-index:23;position:relative;">
-                              <div id="Ra7BHt9xatRzrPkv" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="dQ6W7Ihp8ngn6ngW" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="AFfBG2RZHoc5N7nN" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;">
-                                             <span id="sP4ntqHaUPCnWR5o" style="color:#000000;">Uncover new information from your
-                                                  data with engaging data viz templates.
-                                                  Bring your data to life and tell
-                                                  better stories that non-data
-                                                  teams can easily understand.</span>
-                                             <br>
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="CdLLSxv37sEIxgEf" style="z-index:11;position:relative;">
-                              <div id="vHbeTofncmaKd4QC" style="padding-top:95.46909485%;transform:rotate(0deg);">
-                                   <div id="h1EVKBZchrLD2KsO" style="top:0px;left:0px;width:100%;position:absolute;height:100%;">
-                                        <svg id="XiUAAu9z2scTNCNi" viewBox="0 0 12.0053 11.4614"
-                                        style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                             <g id="PyfbY8yAC2jddduh" style="transform:scale(1, 1);">
-                                                  <path id="Mr6KbbHDFA3HSuS9" d="M1.9686510400000001,0.0 L10.0366657,0.0 C11.12392164,0.0 12.00531673,0.8813951 12.00531673,1.9686510400000001 L12.00531673,9.49271657 C12.00531673,10.57997252 11.12392164,11.46136761 10.0366657,11.46136761 L1.9686510400000001,11.46136761 C0.88139509,11.46136761 0.0,10.579972510000001 0.0,9.49271657 L0.0,1.9686510400000001 C0.0,0.88139509 0.88139509,0.0 1.9686510400000001,0.0 Z"
-                                                  style="fill:#233dff;opacity:1.0;"></path>
-                                             </g>
-                                        </svg>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="Kht805TDoIUKN1at" style="z-index:19;position:relative;">
-                              <div id="mo7YVtx1Ijt3sDiA" style="padding-top:84.86564885%;transform:rotate(0deg);">
-                                   <div id="z9DfSTX76YU4Cqfh" style="top:0px;left:0px;width:100%;position:absolute;height:100%;">
-                                        <div id="Vi69mXUijsuV4gGt" style="width:100%;opacity:1.0;height:100%;">
-                                             <div id="lqVAPXL0mjkxq0oc" style="transform:scale(1, 1);overflow:hidden;width:100%;height:100%;">
-                                                  <div id="CbQEPxLrdLGGDaem" style="transform:rotate(0deg);top:0%;left:0%;width:100%;position:relative;opacity:1.0;height:117.83330636%;animation:anim-pulse 1.5s ease-in-out infinite;">
-                                                       <img src="https://crowdtamers.my.canva.site/row64/images/4b3594b7b2d5e88e8d5077c483d7b036.svg"
-                                                       alt="" loading="lazy" style="width:100%;height:100%;">
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="V42iJ0bdBJfLPnEf" style="z-index:12;position:relative;">
-                              <div id="M8qQBcEar4xTKLHq" style="padding-top:70.41199618%;transform:rotate(0deg);">
-                                   <div id="Vqpw2KQACHcJywcN" style="top:0px;left:0px;width:100%;position:absolute;height:100%;">
-                                        <svg id="YuNIw9WdmDE29vs1" viewBox="0 0 109.766 77.2884"
-                                        style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                             <g id="Y0FoWB2mpwxqgq44" style="transform:scale(1, 1);">
-                                                  <path id="d1Ud17lk3O9NqWLp" d="M9.96631241,0.0 L99.79966354,0.0 C105.3039059,0.0 109.76597595,4.46207005 109.76597595,9.96631241 L109.76597595,67.32210159 C109.76597595,69.96533198 108.71595677,72.50030254 106.84691063,74.36934868 104.97786449,76.23839482 102.44289393,77.288414 99.79966354,77.288414 L9.96631241,77.288414 C7.32308202,77.288414 4.7881114600000005,76.23839482 2.91906532,74.36934868 1.05001919,72.50030254 0.0,69.96533198 0.0,67.32210159 L0.0,9.96631241 C0.0,7.32308202 1.05001919,4.7881114600000005 2.91906532,2.91906532 4.7881114600000005,1.05001919 7.32308202,0.0 9.96631241,0.0 Z"
-                                                  style="fill:#e2eef7;opacity:1.0;"></path>
-                                             </g>
-                                        </svg>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="DzcJGOiuY7JWuvOl" style="z-index:24;position:relative;">
-                              <div id="t4RBZo3hB2uClW85" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="XYAc1QCCVDU8DeCu" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="WB5MOYZNulWMO21F" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;">
-                                             <span id="OBPfFqKEfJ6lyflx" style="color:#000000;font-weight:700;">Build custom workflows for the team</span>
-                                             <br>
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="gQj0T1ESfbnd86kM" style="z-index:25;position:relative;">
-                              <div id="bn0HnHlenewKOJWj" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="YaiFlSm0jOueyT0V" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="xcomOMW0QFzUpbHa" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;">
-                                             <span id="MJCW9xlj1JSecQgh" style="color:#000000;">With the recipe universe, access over
-                                                  300 pre-installed Python data
-                                                  recipes or create and share your
-                                                  own custom recipes to speed up
-                                                  team collaboration around data.</span>
-                                             <br>
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="gx0rOYN4eBOc5wHJ" style="z-index:13;position:relative;">
-                              <div id="nEQZmfhGRng1fB8j" style="padding-top:95.46909485%;transform:rotate(0deg);">
-                                   <div id="hN0qC8LSkExlJdwL" style="top:0px;left:0px;width:100%;position:absolute;height:100%;">
-                                        <svg id="AObl1pF0VMxxJMdF" viewBox="0 0 12.0053 11.4614"
-                                        style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                             <g id="akhT103ptMVdq7r6" style="transform:scale(1, 1);">
-                                                  <path id="gurksta4kVjVsGa5" d="M1.9686510400000001,0.0 L10.0366657,0.0 C11.12392164,0.0 12.00531673,0.8813951 12.00531673,1.9686510400000001 L12.00531673,9.49271657 C12.00531673,10.57997252 11.12392164,11.46136761 10.0366657,11.46136761 L1.9686510400000001,11.46136761 C0.88139509,11.46136761 0.0,10.579972510000001 0.0,9.49271657 L0.0,1.9686510400000001 C0.0,0.88139509 0.88139509,0.0 1.9686510400000001,0.0 Z"
-                                                  style="fill:#233dff;opacity:1.0;"></path>
-                                             </g>
-                                        </svg>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="QFLRa9iCiQDdnDfh" style="z-index:20;position:relative;">
-                              <div id="vuAoRuQv9kz8oI7Z" style="padding-top:100%;transform:rotate(0deg);">
-                                   <div id="QV5RnYthoh2J3j65" style="top:0px;left:0px;width:100%;position:absolute;height:100%;">
-                                        <div id="P0WZZnq7863g8Zzu" style="width:100%;opacity:1.0;height:100%;">
-                                             <div id="w1dr9qTmKzRW75N5" style="transform:scale(1, 1);overflow:hidden;width:100%;height:100%;">
-                                                  <div id="bGw0Xrp794HhBRBK" style="transform:rotate(0deg);top:0%;left:0%;width:100%;position:relative;opacity:1.0;height:100%;animation:anim-pulse 1.5s ease-in-out infinite;">
-                                                       <img src="https://crowdtamers.my.canva.site/row64/images/a4882dfb7da6d7946abaa6fc2daa0f71.svg"
-                                                       alt="" loading="lazy" style="width:100%;height:100%;">
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="jn374LOrNVy80VrY" style="z-index:15;position:relative;">
-                              <div id="KlPhhpOAFdJV3oP7" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <svg id="ng8gL2GQbl0ZMd6g" viewBox="0 0 41.8073 9.5029"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="iSlvc0nip6IXB0KE" style="transform:scale(1, 1);">
-                                             <path id="VuRgywcnPnDc6FB5" d="M2.00346443,0.0 L39.803794180000004,0.0 C40.91027703,0.0 41.80725861,0.8969815800000001 41.80725861,2.00346443 L41.80725861,7.49945668 C41.807258600000004,8.60593953 40.91027703,9.5029211 39.803794180000004,9.5029211 L2.00346443,9.5029211 C0.8969815800000001,9.5029211 0.0,8.60593953 0.0,7.49945668 L0.0,2.00346443 C0.0,0.8969815800000001 0.8969815800000001,0.0 2.00346443,0.0 Z"
-                                             style="fill:#233dff;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                              </div>
-                         </div>
-                         <div id="IonuzXboelMf3U3m" style="z-index:16;position:relative;">
-                              <div id="DdllvrWtdfSL8jfT" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="WuJ6WLnbc8gZWn4t" style="flex-direction:column;display:flex;width:100%;justify-content:center;opacity:1.0;height:100%;">
-                                        <p id="Ce9zqZk7vU7YbldP" style="text-transform:none;color:#ffffff;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;text-align:center;"><a id="nwBr0670PG54VOTV" target="_blank"
-                                             rel="noopener" href="https://row64.com/Download/?utm_source=lp&utm_campaign=ER2_LP&utm_id=collaborate&utm_content=LP_signup_top"
-                                             style="text-decoration-line:underline;color:#ffffff;font-weight:700;pointer-events:all;">START HERE</a>
-                                             <br>
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                    </div>
-               </section>
-               <section id="ZW1um1FEt3LL57cI" style="z-index:0;overflow:hidden;grid-template-columns:auto min(100vw, 1366px) auto;display:grid;margin-top:-1px;position:relative;align-items:center;">
-                    <div id="jcvg6LdmdgBwzjvY" style="background-color:#ffffff;transform:scale(1, 1);overflow:hidden;width:100%;opacity:1.0;height:100%;top:0%;left:0%;position:absolute;"></div>
-                    <div id="Dwyf9UU76LB20S1S" style="display:grid;grid-column:2;position:relative;">
-                         <div id="tMgrbq8kXbAPSMOj" style="z-index:6;position:relative;">
-                              <div id="Y87vpimxSHaX3n7r" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="uwG3k19l61dr5S4x" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="jRisaO0FC7jPJFYH" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;text-align:center;">
-                                             <span id="nr0DT1p6AEZQe8fR" style="color:#000000;font-weight:700;">Redefine collaboration across data
-                                                  teams with Row64</span>
-                                             <br>
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="IT3RHFmyXAMudn29" style="z-index:1;position:relative;">
-                              <div id="GKrIMVRBbvCzOe7F" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <svg id="JyiwiajOMy74f9lw" viewBox="0 0 193.9169 12.1021"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="V2yenahvH7WeUonN" style="transform:scale(1, 1);">
-                                             <path id="OuZrBsgnQAmKwiql" d="M1.97530882,0.0 L191.94157656000002,0.0 C193.0325095,0.0 193.91688538,0.88437588 193.91688538,1.97530882 L193.91688538,10.12674864 C193.91688538,11.21768158 193.0325095,12.102057460000001 191.94157656000002,12.102057460000001 L1.97530882,12.102057460000001 C0.88437588,12.10205745 0.0,11.21768157 0.0,10.12674864 L0.0,1.97530882 C0.0,0.88437588 0.88437588,0.0 1.97530882,0.0 Z"
-                                             style="fill:#27bff7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                                   <svg id="V81wvUqOzOcPhdx4" viewBox="0 0 159.1952 24.0956"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="R06MAQCxvVOpdMyC" style="transform:scale(1, 1);">
-                                             <path id="h2dgnGrzrI2DsIYp" d="M1.62162082,0.0 L157.57363065,0.0 C158.46922709,0.0 159.19525146,0.72602437 159.19525146,1.62162082 L159.19525146,22.4739507 C159.19525146,23.36954715 158.4692271,24.09557152 157.57363065,24.09557152 L1.62162082,24.09557152 C0.72602437,24.09557152 0.0,23.36954715 0.0,22.4739507 L0.0,1.62162082 C0.0,0.72602437 0.72602437,0.0 1.62162082,0.0 Z"
-                                             style="fill:#27bff7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                                   <svg id="EpyT6ricOjTBwBFp" viewBox="0 0 117.3898 21.9379"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="katkbFDkd30K8Xlf" style="transform:scale(1, 1);">
-                                             <path id="DS9C8oFJuAhyVy8V" d="M1.19577565,0.0 L116.19399486,0.0 C116.51113428000001,0.0 116.8152845,0.12598314 117.03953593,0.35023458 117.26378737,0.57448601 117.38977051,0.87863623 117.38977051,1.19577565 L117.38977051,20.74211917 C117.38977051,21.40252783 116.85440351,21.93789482 116.19399486,21.93789482 L1.19577565,21.93789482 C0.53536699,21.93789482 0.0,21.40252783 0.0,20.74211917 L0.0,1.19577565 C0.0,0.53536699 0.53536699,0.0 1.19577565,0.0 Z"
-                                             style="fill:#27bff7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                                   <svg id="jKjyUpgd0gjjbuVH" viewBox="0 0 74.3646 18.6736"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="zE8lJzSvDxZIATjC" style="transform:scale(1, 1);">
-                                             <path id="bSPcbXHPOb3VUm5C" d="M0.75750515,0.0 L73.60705784,0.0 C74.02541638,0.0 74.36456299,0.33914661 74.36456299,0.75750515 L74.36456299,17.9160941 C74.36456299,18.33445263 74.02541638,18.67359924 73.60705784,18.67359924 L0.75750515,18.67359924 C0.33914661,18.67359924 0.0,18.334452640000002 0.0,17.9160941 L0.0,0.75750515 C0.0,0.33914661 0.33914661,0.0 0.75750515,0.0 Z"
-                                             style="fill:#27bff7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                                   <svg id="sB8ycJcEls0ZUDE9" viewBox="0 0 57.2288 17.5479"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="XS7CaZlvAglCfc7c" style="transform:scale(1, 1);">
-                                             <path id="ORE7s1MUMHjhznCc" d="M0.58295359,0.0 L56.64587865,0.0 C56.96783503,0.0 57.22883224,0.26099721 57.22883224,0.58295359 L57.22883224,16.964928490000002 C57.22883225,17.1195374 57.1674141,17.267813920000002 57.05808909,17.37713893 56.948764080000004,17.48646393 56.80048756,17.54788208 56.64587865,17.54788208 L0.58295359,17.54788208 C0.42834469000000003,17.54788208 0.28006816,17.48646393 0.17074315,17.37713893 0.061418150000000005,17.267813920000002 0.0,17.1195374 0.0,16.964928490000002 L0.0,0.58295359 C0.0,0.42834469000000003 0.061418150000000005,0.28006816 0.17074315,0.17074315 0.28006816,0.061418150000000005 0.42834468000000003,0.0 0.58295359,0.0 Z"
-                                             style="fill:#27bff7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                              </div>
-                         </div>
-                         <div id="Cmtdh9Srq6C1yzRX" style="z-index:8;position:relative;">
-                              <div id="xnnMZMfaobSzK3dV" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="aJYJ66uH7IxdYtFT" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="XNz4LZQ7EEqNm8qf" style="text-transform:none;color:#ffffff;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;">
-                                             <span id="w1XvHgwFYGXsVgPq" style="color:#ffffff;font-weight:700;">Create a Row64 account</span>
-                                             <br>
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="VCeREoh9sSO47b7W" style="z-index:4;position:relative;">
-                              <div id="NZGPxfAbsdbAtFsw" style="padding-top:80.51073306%;transform:rotate(0deg);">
-                                   <div id="qnwijwOUAP8NXaaR" style="top:0px;left:0px;width:100%;position:absolute;height:100%;">
-                                        <div id="zyV54u1XqVRc2DFr" style="width:100%;opacity:1.0;height:100%;">
-                                             <div id="RPfl7wyXyY4wjTxI" style="transform:scale(1, 1);overflow:hidden;width:100%;height:100%;">
-                                                  <div id="J9oGljN90q2BVtYK" style="transform:rotate(0deg);top:0%;left:0%;width:100%;position:relative;opacity:1.0;height:124.20704197%;animation:anim-pulse 1.5s ease-in-out infinite;">
-                                                       <img src="https://crowdtamers.my.canva.site/row64/images/0c7c0b56f4ef635f6738f49aaa2fb182.svg"
-                                                       alt="" loading="lazy" style="width:100%;height:100%;">
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="sMZKEH4YwQcYlJkI" style="z-index:0;position:relative;">
-                              <div id="ernnPUylZ6Z3opwi" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <svg id="hPSKwrX5VsoCqySA" viewBox="0 0 193.9169 12.1021"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="bWicbOyylIPqlDn0" style="transform:scale(1, 1);">
-                                             <path id="MIOhINMMhPcQKDaY" d="M1.97530882,0.0 L191.94157656000002,0.0 C193.0325095,0.0 193.91688538,0.88437588 193.91688538,1.97530882 L193.91688538,10.12674864 C193.91688538,11.21768158 193.0325095,12.102057460000001 191.94157656000002,12.102057460000001 L1.97530882,12.102057460000001 C0.88437588,12.10205745 0.0,11.21768157 0.0,10.12674864 L0.0,1.97530882 C0.0,0.88437588 0.88437588,0.0 1.97530882,0.0 Z"
-                                             style="fill:#27bff7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                                   <svg id="AVpRHdoB3SaEWuoh" viewBox="0 0 159.1952 22.8746"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="IxZP9tOPhEy0cXt5" style="transform:scale(1, 1);">
-                                             <path id="aPQKi8m6zDzAfLif" d="M1.62162082,0.0 L157.57363065,0.0 C158.46922709,0.0 159.19525146,0.72602437 159.19525146,1.62162082 L159.19525146,21.25294812 C159.19525146,22.148544570000002 158.4692271,22.87456894 157.57363065,22.87456894 L1.62162082,22.87456894 C0.72602437,22.87456894 0.0,22.148544570000002 0.0,21.25294812 L0.0,1.62162082 C0.0,0.72602437 0.72602437,0.0 1.62162082,0.0 Z"
-                                             style="fill:#27bff7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                                   <svg id="pMK1vbllD1O2znS4" viewBox="0 0 117.3898 20.7605"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="cEW8tvv2ztKxbuj6" style="transform:scale(1, 1);">
-                                             <path id="DgrWDI38AluYASNp" d="M1.19577565,0.0 L116.19399486,0.0 C116.51113428000001,0.0 116.8152845,0.12598314 117.03953593,0.35023458 117.26378737,0.57448601 117.38977051,0.87863623 117.38977051,1.19577565 L117.38977051,19.5647224 C117.38977051,20.22513105 116.85440352,20.76049805 116.19399486,20.76049805 L1.19577565,20.76049805 C0.53536699,20.76049805 0.0,20.22513105 0.0,19.5647224 L0.0,1.19577565 C0.0,0.53536699 0.53536699,0.0 1.19577565,0.0 Z"
-                                             style="fill:#27bff7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                                   <svg id="pFo5XLI9usCreYx9" viewBox="0 0 74.3646 17.4616"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="HxKnGKiuDadV3rzc" style="transform:scale(1, 1);">
-                                             <path id="HG5t48vmYtb3W26D" d="M0.75750515,0.0 L73.60705784,0.0 C74.02541638,0.0 74.36456299,0.33914661 74.36456299,0.75750515 L74.36456299,16.70406941 C74.36456298,17.12242795 74.02541638,17.46157455 73.60705784,17.46157455 L0.75750515,17.46157455 C0.33914661,17.46157455 0.0,17.12242795 0.0,16.70406941 L0.0,0.75750515 C0.0,0.33914661 0.33914661,0.0 0.75750515,0.0 Z"
-                                             style="fill:#27bff7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                                   <svg id="CxuG406s6BZmEjGd" viewBox="0 0 57.2288 16.3745"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="msFgJerrhak7oeEE" style="transform:scale(1, 1);">
-                                             <path id="cdafC7RrHnMn94cO" d="M0.58295359,0.0 L56.64587865,0.0 C56.96783503,0.0 57.22883224,0.26099721 57.22883224,0.58295359 L57.22883224,15.79155431 C57.22883224,15.94616322 57.16741409,16.09443975 57.05808909,16.20376475 56.948764080000004,16.31308975 56.80048756,16.3745079 56.64587865,16.3745079 L0.58295359,16.3745079 C0.42834469000000003,16.3745079 0.28006816,16.31308976 0.17074315,16.20376475 0.061418150000000005,16.094439740000002 0.0,15.94616322 0.0,15.79155431 L0.0,0.58295359 C0.0,0.42834469000000003 0.061418150000000005,0.28006816 0.17074315,0.17074315 0.28006816,0.061418150000000005 0.42834468000000003,0.0 0.58295359,0.0 Z"
-                                             style="fill:#27bff7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                              </div>
-                         </div>
-                         <div id="Omc64znNC0Sj09F2" style="z-index:7;position:relative;">
-                              <div id="ihXSPzt32h26L6V6" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="Kf81psXq4kvbpaFV" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="K0d3tco3c1cKivDL" style="text-transform:none;color:#ffffff;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;">
-                                             <span id="ZxEPEo2R7Xrv5sUQ" style="color:#ffffff;font-weight:700;">Download the app &amp; install on
-                                                  your machine</span>
-                                             <br>
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="pzzQo513EElFBj5o" style="z-index:3;position:relative;">
-                              <div id="DrlctwlylTQIV1Qc" style="padding-top:79.34250876%;transform:rotate(0deg);">
-                                   <div id="DL02615hfmOz84CQ" style="top:0px;left:0px;width:100%;position:absolute;height:100%;">
-                                        <div id="K9BgYhkBfDXo6AZV" style="width:100%;opacity:1.0;height:100%;">
-                                             <div id="vUO7nH3sBFO57NRr" style="transform:scale(1, 1);overflow:hidden;width:100%;height:100%;">
-                                                  <div id="AgLg4ZdQkPa8C3I1" style="transform:rotate(0deg);top:0%;left:0%;width:100%;position:relative;opacity:1.0;height:126.03584328%;animation:anim-pulse 1.5s ease-in-out infinite;">
-                                                       <img src="https://crowdtamers.my.canva.site/row64/images/eaa3e99cfa2a4043dd0403827dd6a726.svg"
-                                                       alt="" loading="lazy" style="width:100%;height:100%;">
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="cw2piUETIidWrXcn" style="z-index:2;position:relative;">
-                              <div id="kODtXw8ZqwlHjLSp" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <svg id="hE4Eblsr0AgCnaLs" viewBox="0 0 193.9169 12.1021"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="wl5kvsudmAB0pPz4" style="transform:scale(1, 1);">
-                                             <path id="vJqU5MMLufftlWGC" d="M1.97530882,0.0 L191.94157656000002,0.0 C193.0325095,0.0 193.91688538,0.88437588 193.91688538,1.97530882 L193.91688538,10.12674864 C193.91688538,11.21768158 193.0325095,12.102057460000001 191.94157656000002,12.102057460000001 L1.97530882,12.102057460000001 C0.88437588,12.10205745 0.0,11.21768157 0.0,10.12674864 L0.0,1.97530882 C0.0,0.88437588 0.88437588,0.0 1.97530882,0.0 Z"
-                                             style="fill:#27bff7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                                   <svg id="Vg5UZyll4NLpNmNG" viewBox="0 0 159.1952 25.3506"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="MI6XPpt7MrTQUhnX" style="transform:scale(1, 1);">
-                                             <path id="mdjyPmU3ZfJFITq2" d="M1.62162082,0.0 L157.57363065,0.0 C158.46922709,0.0 159.19525146,0.72602437 159.19525146,1.62162082 L159.19525146,23.72898038 C159.19525147000002,24.62457683 158.4692271,25.3506012 157.57363065,25.3506012 L1.62162082,25.3506012 C0.72602437,25.3506012 0.0,24.62457683 0.0,23.72898038 L0.0,1.62162082 C0.0,0.72602437 0.72602437,0.0 1.62162082,0.0 Z"
-                                             style="fill:#27bff7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                                   <svg id="rYPky2JKFMf19M3r" viewBox="0 0 117.3898 23.1481"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="XDiS8fTnCJspl1f8" style="transform:scale(1, 1);">
-                                             <path id="SA9yHi6mSMtNJimg" d="M1.19577565,0.0 L116.19399486,0.0 C116.51113428000001,0.0 116.8152845,0.12598314 117.03953593,0.35023458 117.26378737,0.57448601 117.38977051,0.87863623 117.38977051,1.19577565 L117.38977051,21.952326160000002 C117.38977051,22.61273481 116.85440352,23.14810181 116.19399486,23.14810181 L1.19577565,23.14810181 C0.53536699,23.14810181 0.0,22.61273481 0.0,21.952326160000002 L0.0,1.19577565 C0.0,0.53536699 0.53536699,0.0 1.19577565,0.0 Z"
-                                             style="fill:#27bff7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                                   <svg id="fMLCSXAJGIYuQKZT" viewBox="0 0 74.3646 19.9194"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="YHnmoWLW65CkxzD0" style="transform:scale(1, 1);">
-                                             <path id="UR4mEY7NuVTlwatp" d="M0.75750515,0.0 L73.60705784,0.0 C74.02541638,0.0 74.36456299,0.33914661 74.36456299,0.75750515 L74.36456299,19.16189602 C74.36456299,19.58025456 74.02541638,19.91940117 73.60705784,19.91940117 L0.75750515,19.91940117 C0.33914661,19.91940117 0.0,19.58025456 0.0,19.16189602 L0.0,0.75750515 C0.0,0.33914661 0.33914661,0.0 0.75750515,0.0 Z"
-                                             style="fill:#27bff7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                                   <svg id="xhsorHpn5rYpku69" viewBox="0 0 57.2288 18.754"
-                                   preserveAspectRatio="none" style="overflow:hidden;top:0%;left:0%;width:100%;position:absolute;opacity:1.0;height:100%;">
-                                        <g id="xDmFIf3M5Zo40cGD" style="transform:scale(1, 1);">
-                                             <path id="fZ7tVfzUYx6jmXLH" d="M0.58295359,0.0 L56.64587865,0.0 C56.96783503,0.0 57.22883224,0.26099721 57.22883224,0.58295359 L57.22883224,18.17100034 C57.22883224,18.32560925 57.16741409,18.47388577 57.05808909,18.58321078 56.948764080000004,18.69253578 56.80048756,18.75395393 56.64587865,18.75395393 L0.58295359,18.75395393 C0.42834469000000003,18.75395393 0.28006816,18.69253579 0.17074315,18.58321078 0.061418150000000005,18.47388577 0.0,18.32560925 0.0,18.17100034 L0.0,0.58295359 C0.0,0.42834469000000003 0.061418150000000005,0.28006816 0.17074315,0.17074315 0.28006816,0.061418150000000005 0.42834468000000003,0.0 0.58295359,0.0 Z"
-                                             style="fill:#27bff7;opacity:1.0;"></path>
-                                        </g>
-                                   </svg>
-                              </div>
-                         </div>
-                         <div id="tZs0blC6T4PD8XsT" style="z-index:9;position:relative;">
-                              <div id="pzzFR40uQDUoHome" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
-                                   <div id="r7B43PE5RP6BqujJ" style="flex-direction:column;display:flex;width:100%;justify-content:flex-start;opacity:1.0;height:100%;">
-                                        <p id="KNgW6zRkwZWYEPGD" style="text-transform:none;color:#ffffff;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;">
-                                             <span id="qNrEMCh5SvSKUR1A" style="color:#ffffff;font-weight:700;">Use one of our 300+ templates or build
-                                                  a custom one</span>
-                                             <br>
-                                        </p>
-                                   </div>
-                              </div>
-                         </div>
-                         <div id="UqsQCTebSAZ9np8e" style="z-index:5;position:relative;">
-                              <div id="Bb9fd5ML3k94A0H5" style="padding-top:79.34250876%;transform:rotate(0deg);">
-                                   <div id="eFtzyaWCLWq1FiFD" style="top:0px;left:0px;width:100%;position:absolute;height:100%;">
-                                        <div id="mnUimRTWpROZozwf" style="width:100%;opacity:1.0;height:100%;">
-                                             <div id="hxWwaJ3LoVuWeObS" style="transform:scale(1, 1);overflow:hidden;width:100%;height:100%;">
-                                                  <div id="Ejg1EgluwVx7U7it" style="transform:rotate(0deg);top:0%;left:0%;width:100%;position:relative;opacity:1.0;height:126.03584328%;animation:anim-pulse 1.5s ease-in-out infinite;">
-                                                       <img src="https://crowdtamers.my.canva.site/row64/images/ed94b07c3c2f277677d7ca890fd42e29.svg"
-                                                       alt="" loading="lazy" style="width:100%;height:100%;">
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                    </div>
-               </section>
+                  var sections = window.hypertune.get(['root', 'content', 'sections'], null);
+
+                  if (!sections) {
+                      document.writeln(socialProofHTML);
+                      document.writeln(benefitsHTML);
+                      document.writeln(redefineHTML);
+                  } else {
+                  	for (var i = 0; i < sections.length; ++i) {
+                  	    if (sections[i] == 'social_proof') {
+                  	    	document.writeln(socialProofHTML);
+                  	    }
+                  	    if (sections[i] == 'benefits') {
+                  	    	document.writeln(benefitsHTML);
+                  	    }
+                  	    if (sections[i] == 'redefine') {
+                  	    	document.writeln(redefineHTML);
+                  	    }
+                  	}
+                  }
+                  </script>
+
                <section id="jgXyBqUyHfjPaKU3" style="z-index:0;overflow:hidden;grid-template-columns:auto min(100vw, 1366px) auto;display:grid;margin-top:-1px;position:relative;align-items:center;">
                     <div id="SPOS9lWfxqJiO3nR" style="background-color:#ffffff;transform:scale(1, 1);overflow:hidden;width:100%;opacity:1.0;height:100%;top:0%;left:0%;position:absolute;"></div>
                     <div id="gJRjdRfjKJPjsBbR" style="display:grid;grid-column:2;position:relative;">
@@ -1344,7 +837,7 @@
                          <div id="CTFq37Cr1dvMCZqn" style="z-index:5;position:relative;">
                               <div id="PTN5FgJoKrlXOEt5" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
                                    <div id="i7119SkYxnzS0GaC" style="flex-direction:column;display:flex;width:100%;justify-content:center;opacity:1.0;height:100%;">
-                                        <p id="f5y0gLfNkos9YapI" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;text-align:center;"><a id="p7TyKDCPyTbUOw1c" target="_blank"
+                                        <p id="f5y0gLfNkos9YapI" style="text-transform:none;color:#000000;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;text-align:center;"><a id="p7TyKDCPyTbUOw1c"  onclick="ctaClick();" target="_blank"
                                              rel="noopener" href="https://row64.com/Download/?utm_source=lp&utm_campaign=ER2_LP&utm_id=collaborate&utm_content=LP_signup_Price-free"
                                              style="text-decoration-line:underline;color:#000000;pointer-events:all;">Get ROW64 FREE</a>
                                              <br>
@@ -1460,7 +953,7 @@
                          <div id="qB3iVUdIly9IlHFi" style="z-index:14;position:relative;">
                               <div id="LDdfiIuXXZnQ9Mmq" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
                                    <div id="MgoRPWbCENu0s33F" style="flex-direction:column;display:flex;width:100%;justify-content:center;opacity:1.0;height:100%;">
-                                        <p id="EXbffOxeHnooNqDp" style="text-transform:none;color:#ffffff;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;text-align:center;"><a id="X0iCZeFfr9FcHMvJ" target="_blank"
+                                        <p id="EXbffOxeHnooNqDp" style="text-transform:none;color:#ffffff;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;text-align:center;"><a id="X0iCZeFfr9FcHMvJ"  onclick="ctaClick();" target="_blank"
                                              rel="noopener" href="https://row64.com/Download/?utm_source=lp&utm_campaign=ER2_LP&utm_id=collaborate&utm_content=LP_signup_Price-Plus"
                                              style="text-decoration-line:underline;color:#ffffff;font-weight:700;pointer-events:all;">Subscribe Now</a>
                                              <br>
@@ -1712,7 +1205,7 @@
                          <div id="iwUsgKsBlgQ0BgTe" style="z-index:32;position:relative;">
                               <div id="VJNzBLyzgDgwSFaO" style="transform:rotate(0deg);width:100%;box-sizing:border-box;height:100%;">
                                    <div id="IVDNw309CJUfQ77f" style="flex-direction:column;display:flex;width:100%;justify-content:center;opacity:1.0;height:100%;">
-                                        <p id="IHqqFkVHTw2tRCfB" style="text-transform:none;color:#ffffff;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;text-align:center;"><a id="WolOk6fGr4Fd8R9P" target="_blank"
+                                        <p id="IHqqFkVHTw2tRCfB" style="text-transform:none;color:#ffffff;letter-spacing:0em;font-family:Roboto, Arial, Helvetica, sans-serif;;line-height:1.4em;text-align:center;"><a id="WolOk6fGr4Fd8R9P"  onclick="ctaClick();" target="_blank"
                                              rel="noopener" href="https://row64.com/Download/?utm_source=lp&utm_campaign=ER2_LP&utm_id=collaborate&utm_content=Price-Professional"
                                              style="text-decoration-line:underline;color:#ffffff;font-weight:700;pointer-events:all;">Subscribe Now</a>
                                              <br>
